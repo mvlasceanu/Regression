@@ -1,0 +1,1657 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Data Manipulation and Correlations &#8212; PSYCH-GA 2229 Regression (2024 Spring)</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '01_Regression_Week2_DataManipulation&Correlations';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="T-Test" href="02_Regression_Week3_TTests.html" />
+    <link rel="prev" title="Welcome to PSYCH-GA 2229 Regression (2024 Spring)" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <header>
+  
+    <div class="bd-header navbar navbar-expand-lg bd-navbar">
+    </div>
+  
+  </header>
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/coco-logo.png" class="logo__image only-light" alt="PSYCH-GA 2229 Regression (2024 Spring) - Home"/>
+    <script>document.write(`<img src="_static/coco-logo.png" class="logo__image only-dark" alt="PSYCH-GA 2229 Regression (2024 Spring) - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to PSYCH-GA 2229 Regression (2024 Spring)
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Data Manipulation and Correlations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_Regression_Week3_TTests.html">T-Test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_Regression_Week4_ChiSquare.html">Chi Square Test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_Regression_Week5_ANOVA.html">ANOVA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_Regression_Week6_Regression.html">Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_Regression_Week7_Mediation.html">Mediation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_Regression_Week8_NonlinearRegression.html">Logistic, Poisson, Multinomial, and Ordinal Regression</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F01_Regression_Week2_DataManipulation&Correlations.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/01_Regression_Week2_DataManipulation&Correlations.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Data Manipulation and Correlations</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wide-to-long-transformations">Wide to long transformations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-subsets-of-your-dataframe">Selecting subsets of your dataframe</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlations">Correlations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plots">Plots</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="data-manipulation-and-correlations">
+<h1>Data Manipulation and Correlations<a class="headerlink" href="#data-manipulation-and-correlations" title="Permalink to this heading">#</a></h1>
+<p>Notebook created for Regression in Psychology <a class="reference external" href="https://docs.google.com/document/d/10AW7g92O6BtX61kXVIkHtL4j_k3P_G5f/edit?usp=sharing&amp;ouid=100340169590558171318&amp;rtpof=true&amp;sd=true">PSYCH–GA.2229</a> graduate level course at New York University by <a class="reference external" href="https://www.mvlasceanu.com/">Dr. Madalina Vlasceanu</a></p>
+<p>This content is Open Access (free access to information and unrestricted use of electronic resources for everyone).</p>
+<p>Sources:</p>
+<ul class="simple">
+<li><p>Navarro, D. (2013). Learning statistics with R: <a class="reference external" href="https://learningstatisticswithr.com/">https://learningstatisticswithr.com/</a></p></li>
+<li><p>Gureckis, 2018
+<a class="reference external" href="https://teaching.gureckislab.org/fall22/labincp/intro.html">https://teaching.gureckislab.org/fall22/labincp/intro.html</a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import libraries</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import data downloaded from https://github.com/mvlasceanu/RegressionData/blob/main/data.xlsx</span>
+<span class="c1">#df = pd.read_excel(&#39;data.xlsx&#39;)</span>
+
+<span class="c1"># Or you can read the Excel file directly from the URL</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://github.com/mvlasceanu/RegressionData/raw/main/data.xlsx&#39;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Response ID</th>
+      <th>GENDER</th>
+      <th>AGE</th>
+      <th>PARTY</th>
+      <th>TWITTER</th>
+      <th>TRUST</th>
+      <th>RU1</th>
+      <th>RU2</th>
+      <th>RU3</th>
+      <th>RU4</th>
+      <th>...</th>
+      <th>Post23</th>
+      <th>Post24</th>
+      <th>Post25</th>
+      <th>Post26</th>
+      <th>Post27</th>
+      <th>Post28</th>
+      <th>Post29</th>
+      <th>Post30</th>
+      <th>Post31</th>
+      <th>Post32</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>R_0cj5dsJg2wfpiuJ</td>
+      <td>1</td>
+      <td>18</td>
+      <td>1</td>
+      <td>0</td>
+      <td>95</td>
+      <td>4.0</td>
+      <td>26</td>
+      <td>0</td>
+      <td>-5</td>
+      <td>...</td>
+      <td>69</td>
+      <td>60</td>
+      <td>20</td>
+      <td>58</td>
+      <td>84</td>
+      <td>22</td>
+      <td>42</td>
+      <td>77</td>
+      <td>90</td>
+      <td>71</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>R_0rkhLjwWPHHjnTX</td>
+      <td>0</td>
+      <td>19</td>
+      <td>2</td>
+      <td>1</td>
+      <td>76</td>
+      <td>-5.0</td>
+      <td>16</td>
+      <td>3</td>
+      <td>-1</td>
+      <td>...</td>
+      <td>58</td>
+      <td>82</td>
+      <td>38</td>
+      <td>61</td>
+      <td>36</td>
+      <td>40</td>
+      <td>62</td>
+      <td>68</td>
+      <td>46</td>
+      <td>43</td>
+    </tr>
+  </tbody>
+</table>
+<p>2 rows × 102 columns</p>
+</div></div></div>
+</div>
+<section id="wide-to-long-transformations">
+<h2>Wide to long transformations<a class="headerlink" href="#wide-to-long-transformations" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># transform the datafram from wide format to long format using Panda&#39;s wide_to_long function</span>
+
+<span class="n">df_long</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">wide_to_long</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(),</span> <span class="n">stubnames</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;RU&#39;</span><span class="p">,</span> <span class="s1">&#39;Pre&#39;</span><span class="p">],</span> <span class="n">i</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Response ID&#39;</span><span class="p">,</span><span class="s1">&#39;GENDER&#39;</span><span class="p">],</span> <span class="n">j</span><span class="o">=</span><span class="s1">&#39;Item&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">df_long</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Response ID</th>
+      <th>GENDER</th>
+      <th>Item</th>
+      <th>TWITTER</th>
+      <th>Post27</th>
+      <th>Post2</th>
+      <th>Post14</th>
+      <th>Post11</th>
+      <th>Post12</th>
+      <th>PARTY</th>
+      <th>...</th>
+      <th>Post18</th>
+      <th>Post10</th>
+      <th>Post16</th>
+      <th>Post29</th>
+      <th>Post26</th>
+      <th>TRUST</th>
+      <th>Post15</th>
+      <th>Post19</th>
+      <th>RU</th>
+      <th>Pre</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>R_0cj5dsJg2wfpiuJ</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>84</td>
+      <td>90</td>
+      <td>80</td>
+      <td>31</td>
+      <td>35</td>
+      <td>1</td>
+      <td>...</td>
+      <td>55</td>
+      <td>10</td>
+      <td>23</td>
+      <td>42</td>
+      <td>58</td>
+      <td>95</td>
+      <td>57</td>
+      <td>20</td>
+      <td>4.0</td>
+      <td>83</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>R_0cj5dsJg2wfpiuJ</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>84</td>
+      <td>90</td>
+      <td>80</td>
+      <td>31</td>
+      <td>35</td>
+      <td>1</td>
+      <td>...</td>
+      <td>55</td>
+      <td>10</td>
+      <td>23</td>
+      <td>42</td>
+      <td>58</td>
+      <td>95</td>
+      <td>57</td>
+      <td>20</td>
+      <td>26.0</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>R_0cj5dsJg2wfpiuJ</td>
+      <td>1</td>
+      <td>3</td>
+      <td>0</td>
+      <td>84</td>
+      <td>90</td>
+      <td>80</td>
+      <td>31</td>
+      <td>35</td>
+      <td>1</td>
+      <td>...</td>
+      <td>55</td>
+      <td>10</td>
+      <td>23</td>
+      <td>42</td>
+      <td>58</td>
+      <td>95</td>
+      <td>57</td>
+      <td>20</td>
+      <td>0.0</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>R_0cj5dsJg2wfpiuJ</td>
+      <td>1</td>
+      <td>4</td>
+      <td>0</td>
+      <td>84</td>
+      <td>90</td>
+      <td>80</td>
+      <td>31</td>
+      <td>35</td>
+      <td>1</td>
+      <td>...</td>
+      <td>55</td>
+      <td>10</td>
+      <td>23</td>
+      <td>42</td>
+      <td>58</td>
+      <td>95</td>
+      <td>57</td>
+      <td>20</td>
+      <td>-5.0</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>R_0cj5dsJg2wfpiuJ</td>
+      <td>1</td>
+      <td>5</td>
+      <td>0</td>
+      <td>84</td>
+      <td>90</td>
+      <td>80</td>
+      <td>31</td>
+      <td>35</td>
+      <td>1</td>
+      <td>...</td>
+      <td>55</td>
+      <td>10</td>
+      <td>23</td>
+      <td>42</td>
+      <td>58</td>
+      <td>95</td>
+      <td>57</td>
+      <td>20</td>
+      <td>4.0</td>
+      <td>86</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>6395</th>
+      <td>R_ZpYHWVd91u6fjBT</td>
+      <td>0</td>
+      <td>28</td>
+      <td>0</td>
+      <td>35</td>
+      <td>55</td>
+      <td>40</td>
+      <td>33</td>
+      <td>33</td>
+      <td>1</td>
+      <td>...</td>
+      <td>38</td>
+      <td>62</td>
+      <td>56</td>
+      <td>24</td>
+      <td>37</td>
+      <td>66</td>
+      <td>17</td>
+      <td>70</td>
+      <td>23.0</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <th>6396</th>
+      <td>R_ZpYHWVd91u6fjBT</td>
+      <td>0</td>
+      <td>29</td>
+      <td>0</td>
+      <td>35</td>
+      <td>55</td>
+      <td>40</td>
+      <td>33</td>
+      <td>33</td>
+      <td>1</td>
+      <td>...</td>
+      <td>38</td>
+      <td>62</td>
+      <td>56</td>
+      <td>24</td>
+      <td>37</td>
+      <td>66</td>
+      <td>17</td>
+      <td>70</td>
+      <td>-24.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>6397</th>
+      <td>R_ZpYHWVd91u6fjBT</td>
+      <td>0</td>
+      <td>30</td>
+      <td>0</td>
+      <td>35</td>
+      <td>55</td>
+      <td>40</td>
+      <td>33</td>
+      <td>33</td>
+      <td>1</td>
+      <td>...</td>
+      <td>38</td>
+      <td>62</td>
+      <td>56</td>
+      <td>24</td>
+      <td>37</td>
+      <td>66</td>
+      <td>17</td>
+      <td>70</td>
+      <td>-20.0</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <th>6398</th>
+      <td>R_ZpYHWVd91u6fjBT</td>
+      <td>0</td>
+      <td>31</td>
+      <td>0</td>
+      <td>35</td>
+      <td>55</td>
+      <td>40</td>
+      <td>33</td>
+      <td>33</td>
+      <td>1</td>
+      <td>...</td>
+      <td>38</td>
+      <td>62</td>
+      <td>56</td>
+      <td>24</td>
+      <td>37</td>
+      <td>66</td>
+      <td>17</td>
+      <td>70</td>
+      <td>36.0</td>
+      <td>69</td>
+    </tr>
+    <tr>
+      <th>6399</th>
+      <td>R_ZpYHWVd91u6fjBT</td>
+      <td>0</td>
+      <td>32</td>
+      <td>0</td>
+      <td>35</td>
+      <td>55</td>
+      <td>40</td>
+      <td>33</td>
+      <td>33</td>
+      <td>1</td>
+      <td>...</td>
+      <td>38</td>
+      <td>62</td>
+      <td>56</td>
+      <td>24</td>
+      <td>37</td>
+      <td>66</td>
+      <td>17</td>
+      <td>70</td>
+      <td>1.0</td>
+      <td>68</td>
+    </tr>
+  </tbody>
+</table>
+<p>6400 rows × 42 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#transform the datafram from wide format to long format using Panda&#39;s melt function</span>
+
+<span class="n">df_long_2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s1">&#39;Response ID&#39;</span><span class="p">,</span> <span class="s2">&quot;GENDER&quot;</span><span class="p">,</span> <span class="s2">&quot;AGE&quot;</span><span class="p">,</span> <span class="s2">&quot;PARTY&quot;</span><span class="p">,</span> <span class="s2">&quot;TWITTER&quot;</span><span class="p">,</span> <span class="s2">&quot;TRUST&quot;</span><span class="p">,</span> <span class="s2">&quot;RU1&quot;</span><span class="p">,</span><span class="s1">&#39;RU2&#39;</span><span class="p">,</span> <span class="s1">&#39;RU3&#39;</span><span class="p">,</span> <span class="s1">&#39;RU4&#39;</span><span class="p">]],</span>
+    <span class="n">id_vars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Response ID&#39;</span><span class="p">,</span> <span class="s2">&quot;GENDER&quot;</span><span class="p">,</span> <span class="s2">&quot;AGE&quot;</span><span class="p">,</span> <span class="s2">&quot;PARTY&quot;</span><span class="p">,</span> <span class="s2">&quot;TWITTER&quot;</span><span class="p">,</span> <span class="s2">&quot;TRUST&quot;</span><span class="p">],</span>
+    <span class="n">var_name</span><span class="o">=</span><span class="s2">&quot;Item&quot;</span><span class="p">,</span>
+    <span class="n">value_name</span><span class="o">=</span><span class="s2">&quot;RU&quot;</span>
+<span class="p">)</span>
+<span class="n">df_long_2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Response ID</th>
+      <th>GENDER</th>
+      <th>AGE</th>
+      <th>PARTY</th>
+      <th>TWITTER</th>
+      <th>TRUST</th>
+      <th>Item</th>
+      <th>RU</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>R_0cj5dsJg2wfpiuJ</td>
+      <td>1</td>
+      <td>18</td>
+      <td>1</td>
+      <td>0</td>
+      <td>95</td>
+      <td>RU1</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>R_0rkhLjwWPHHjnTX</td>
+      <td>0</td>
+      <td>19</td>
+      <td>2</td>
+      <td>1</td>
+      <td>76</td>
+      <td>RU1</td>
+      <td>-5.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>R_10BMNpjhInMfUeO</td>
+      <td>1</td>
+      <td>18</td>
+      <td>1</td>
+      <td>1</td>
+      <td>86</td>
+      <td>RU1</td>
+      <td>-5.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>R_120iGR6WlLnbZnI</td>
+      <td>0</td>
+      <td>22</td>
+      <td>1</td>
+      <td>0</td>
+      <td>95</td>
+      <td>RU1</td>
+      <td>23.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>R_12qW8cDY0bNlId2</td>
+      <td>0</td>
+      <td>19</td>
+      <td>3</td>
+      <td>0</td>
+      <td>76</td>
+      <td>RU1</td>
+      <td>18.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>795</th>
+      <td>R_xapQxguTwA3Juh3</td>
+      <td>1</td>
+      <td>18</td>
+      <td>1</td>
+      <td>0</td>
+      <td>76</td>
+      <td>RU4</td>
+      <td>-32.0</td>
+    </tr>
+    <tr>
+      <th>796</th>
+      <td>R_XMS13V10vkvYag9</td>
+      <td>1</td>
+      <td>18</td>
+      <td>3</td>
+      <td>0</td>
+      <td>76</td>
+      <td>RU4</td>
+      <td>-4.0</td>
+    </tr>
+    <tr>
+      <th>797</th>
+      <td>R_ykkxJ7f40bzTEaZ</td>
+      <td>1</td>
+      <td>19</td>
+      <td>1</td>
+      <td>0</td>
+      <td>89</td>
+      <td>RU4</td>
+      <td>-13.0</td>
+    </tr>
+    <tr>
+      <th>798</th>
+      <td>R_ZDXFN47SOcbCJpv</td>
+      <td>0</td>
+      <td>21</td>
+      <td>2</td>
+      <td>0</td>
+      <td>100</td>
+      <td>RU4</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>799</th>
+      <td>R_ZpYHWVd91u6fjBT</td>
+      <td>0</td>
+      <td>19</td>
+      <td>1</td>
+      <td>0</td>
+      <td>66</td>
+      <td>RU4</td>
+      <td>39.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>800 rows × 8 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="selecting-subsets-of-your-dataframe">
+<h2>Selecting subsets of your dataframe<a class="headerlink" href="#selecting-subsets-of-your-dataframe" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># select only women</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;GENDER==1&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Response ID</th>
+      <th>GENDER</th>
+      <th>AGE</th>
+      <th>PARTY</th>
+      <th>TWITTER</th>
+      <th>TRUST</th>
+      <th>RU1</th>
+      <th>RU2</th>
+      <th>RU3</th>
+      <th>RU4</th>
+      <th>...</th>
+      <th>Post23</th>
+      <th>Post24</th>
+      <th>Post25</th>
+      <th>Post26</th>
+      <th>Post27</th>
+      <th>Post28</th>
+      <th>Post29</th>
+      <th>Post30</th>
+      <th>Post31</th>
+      <th>Post32</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>R_0cj5dsJg2wfpiuJ</td>
+      <td>1</td>
+      <td>18</td>
+      <td>1</td>
+      <td>0</td>
+      <td>95</td>
+      <td>4.0</td>
+      <td>26</td>
+      <td>0</td>
+      <td>-5</td>
+      <td>...</td>
+      <td>69</td>
+      <td>60</td>
+      <td>20</td>
+      <td>58</td>
+      <td>84</td>
+      <td>22</td>
+      <td>42</td>
+      <td>77</td>
+      <td>90</td>
+      <td>71</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>R_10BMNpjhInMfUeO</td>
+      <td>1</td>
+      <td>18</td>
+      <td>1</td>
+      <td>1</td>
+      <td>86</td>
+      <td>-5.0</td>
+      <td>-2</td>
+      <td>5</td>
+      <td>5</td>
+      <td>...</td>
+      <td>35</td>
+      <td>46</td>
+      <td>39</td>
+      <td>65</td>
+      <td>44</td>
+      <td>42</td>
+      <td>53</td>
+      <td>55</td>
+      <td>45</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>R_1BoktAHwyuomyCl</td>
+      <td>1</td>
+      <td>20</td>
+      <td>3</td>
+      <td>0</td>
+      <td>41</td>
+      <td>-4.0</td>
+      <td>-16</td>
+      <td>-4</td>
+      <td>-6</td>
+      <td>...</td>
+      <td>59</td>
+      <td>30</td>
+      <td>28</td>
+      <td>59</td>
+      <td>30</td>
+      <td>13</td>
+      <td>63</td>
+      <td>72</td>
+      <td>39</td>
+      <td>33</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>R_1Cmg1E3Fn2Evh4J</td>
+      <td>1</td>
+      <td>19</td>
+      <td>1</td>
+      <td>0</td>
+      <td>96</td>
+      <td>12.0</td>
+      <td>12</td>
+      <td>27</td>
+      <td>5</td>
+      <td>...</td>
+      <td>26</td>
+      <td>7</td>
+      <td>35</td>
+      <td>69</td>
+      <td>59</td>
+      <td>14</td>
+      <td>41</td>
+      <td>66</td>
+      <td>57</td>
+      <td>24</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>R_1etaEYMiW0ydSuF</td>
+      <td>1</td>
+      <td>18</td>
+      <td>1</td>
+      <td>0</td>
+      <td>100</td>
+      <td>-1.0</td>
+      <td>-2</td>
+      <td>-12</td>
+      <td>21</td>
+      <td>...</td>
+      <td>25</td>
+      <td>70</td>
+      <td>28</td>
+      <td>50</td>
+      <td>24</td>
+      <td>12</td>
+      <td>71</td>
+      <td>74</td>
+      <td>45</td>
+      <td>67</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>193</th>
+      <td>R_wTYaq1bnIPk7pIJ</td>
+      <td>1</td>
+      <td>19</td>
+      <td>3</td>
+      <td>0</td>
+      <td>90</td>
+      <td>-3.0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>8</td>
+      <td>...</td>
+      <td>50</td>
+      <td>71</td>
+      <td>43</td>
+      <td>82</td>
+      <td>73</td>
+      <td>27</td>
+      <td>18</td>
+      <td>26</td>
+      <td>93</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <th>194</th>
+      <td>R_wZ3U1Md90MfZpa9</td>
+      <td>1</td>
+      <td>19</td>
+      <td>1</td>
+      <td>1</td>
+      <td>90</td>
+      <td>6.0</td>
+      <td>2</td>
+      <td>31</td>
+      <td>1</td>
+      <td>...</td>
+      <td>55</td>
+      <td>56</td>
+      <td>29</td>
+      <td>70</td>
+      <td>40</td>
+      <td>31</td>
+      <td>60</td>
+      <td>55</td>
+      <td>57</td>
+      <td>44</td>
+    </tr>
+    <tr>
+      <th>195</th>
+      <td>R_xapQxguTwA3Juh3</td>
+      <td>1</td>
+      <td>18</td>
+      <td>1</td>
+      <td>0</td>
+      <td>76</td>
+      <td>-13.0</td>
+      <td>3</td>
+      <td>3</td>
+      <td>-32</td>
+      <td>...</td>
+      <td>56</td>
+      <td>69</td>
+      <td>2</td>
+      <td>68</td>
+      <td>68</td>
+      <td>61</td>
+      <td>71</td>
+      <td>17</td>
+      <td>82</td>
+      <td>27</td>
+    </tr>
+    <tr>
+      <th>196</th>
+      <td>R_XMS13V10vkvYag9</td>
+      <td>1</td>
+      <td>18</td>
+      <td>3</td>
+      <td>0</td>
+      <td>76</td>
+      <td>-12.0</td>
+      <td>5</td>
+      <td>-7</td>
+      <td>-4</td>
+      <td>...</td>
+      <td>44</td>
+      <td>44</td>
+      <td>26</td>
+      <td>40</td>
+      <td>34</td>
+      <td>37</td>
+      <td>35</td>
+      <td>65</td>
+      <td>44</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <th>197</th>
+      <td>R_ykkxJ7f40bzTEaZ</td>
+      <td>1</td>
+      <td>19</td>
+      <td>1</td>
+      <td>0</td>
+      <td>89</td>
+      <td>-3.0</td>
+      <td>14</td>
+      <td>14</td>
+      <td>-13</td>
+      <td>...</td>
+      <td>57</td>
+      <td>23</td>
+      <td>26</td>
+      <td>83</td>
+      <td>44</td>
+      <td>44</td>
+      <td>66</td>
+      <td>35</td>
+      <td>32</td>
+      <td>75</td>
+    </tr>
+  </tbody>
+</table>
+<p>129 rows × 102 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># select only women&#39;s trust in science</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;GENDER==1&#39;</span><span class="p">)[</span><span class="s1">&#39;TRUST&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0       95
+2       86
+5       41
+7       96
+9      100
+      ... 
+193     90
+194     90
+195     76
+196     76
+197     89
+Name: TRUST, Length: 129, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># select only women&#39;s under 50 trust in science</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;GENDER==1 &amp; AGE&lt;50&#39;</span><span class="p">)[</span><span class="s1">&#39;TRUST&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0       95
+2       86
+5       41
+7       96
+9      100
+      ... 
+193     90
+194     90
+195     76
+196     76
+197     89
+Name: TRUST, Length: 129, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># select only women&#39;s trust in science and assign it to a new variable</span>
+
+<span class="n">womenTRUST</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;GENDER==1&#39;</span><span class="p">)[</span><span class="s1">&#39;TRUST&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># select only men&#39;s trust in science and assign it to a new variable</span>
+
+<span class="n">menTRUST</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;GENDER==0&#39;</span><span class="p">)[</span><span class="s1">&#39;TRUST&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="correlations">
+<h2>Correlations<a class="headerlink" href="#correlations" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># corelate trust in science with age</span>
+<span class="c1"># Run a Pearson Correlation for continuous variables</span>
+
+<span class="n">stats</span><span class="o">.</span><span class="n">pearsonr</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">AGE</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">TRUST</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PearsonRResult(statistic=0.012687557785958276, pvalue=0.8584782150756923)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run a Spearman Correlation for rank variables</span>
+<span class="n">stats</span><span class="o">.</span><span class="n">spearmanr</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">AGE</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">TRUST</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SignificanceResult(statistic=0.0248282977917326, pvalue=0.7271057552670346)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="plots">
+<h2>Plots<a class="headerlink" href="#plots" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a simple regression plot</span>
+
+<span class="c1"># Create the figure</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="c1"># Plot the line</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">AGE</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">TRUST</span><span class="p">,</span> <span class="n">scatter_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;#C06C84&quot;</span><span class="p">},</span> <span class="n">line_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span><span class="s2">&quot;#7D0552&quot;</span><span class="p">},</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+
+<span class="c1"># Include this command such that all the elements of the plot appear in the figure</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+<span class="c1"># Save figure</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figure.tif&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;tiff&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/362861663f8d5ce18944813ab80419f13bdd2e7af85d78d40511cee3e4239ace.png" src="_images/362861663f8d5ce18944813ab80419f13bdd2e7af85d78d40511cee3e4239ace.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the figure with 2 panels that share the y axis</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Plot the line of women&#39;s age against their trust in science</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;GENDER==1&#39;</span><span class="p">)[</span><span class="s1">&#39;AGE&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;GENDER==1&#39;</span><span class="p">)[</span><span class="s1">&#39;TRUST&#39;</span><span class="p">],</span> <span class="n">scatter_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;#C06C84&quot;</span><span class="p">},</span> <span class="n">line_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span><span class="s2">&quot;#7D0552&quot;</span><span class="p">},</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># Plot the line of men&#39;s age against their trust in science</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;GENDER==0&#39;</span><span class="p">)[</span><span class="s1">&#39;AGE&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;GENDER==0&#39;</span><span class="p">)[</span><span class="s1">&#39;TRUST&#39;</span><span class="p">],</span> <span class="n">scatter_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;#84C06C&quot;</span><span class="p">},</span> <span class="n">line_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span><span class="s2">&quot;#84C06C&quot;</span><span class="p">},</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># label the x axis</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Women&#39;s age&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Men&#39;s age&quot;</span><span class="p">)</span>
+
+<span class="c1"># label the y axis</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Trust in science&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+
+<span class="c1"># Include this command such that all the elements of the plot appear in the figure</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+<span class="c1"># Save figure</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figure.tif&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;tiff&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/9a7974c6873875e3f0a24aa6bf3b1bcd6fdb4d872fdfe17ffb3c0c090fae8396.png" src="_images/9a7974c6873875e3f0a24aa6bf3b1bcd6fdb4d872fdfe17ffb3c0c090fae8396.png" />
+</div>
+</div>
+<p>Let’s recreate the figure above but remove the scatter dots</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the figure with 2 panels that share the y axis</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Plot the line of women&#39;s age against their trust in science</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;GENDER==1&#39;</span><span class="p">)[</span><span class="s1">&#39;AGE&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;GENDER==1&#39;</span><span class="p">)[</span><span class="s1">&#39;TRUST&#39;</span><span class="p">],</span> <span class="n">scatter</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">line_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span><span class="s2">&quot;#7D0552&quot;</span><span class="p">},</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># Plot the line of men&#39;s age against their trust in science</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;GENDER==0&#39;</span><span class="p">)[</span><span class="s1">&#39;AGE&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;GENDER==0&#39;</span><span class="p">)[</span><span class="s1">&#39;TRUST&#39;</span><span class="p">],</span> <span class="n">scatter</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">line_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span><span class="s2">&quot;#84C06C&quot;</span><span class="p">},</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># label the x axis</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Women&#39;s age&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Men&#39;s age&quot;</span><span class="p">)</span>
+
+<span class="c1"># label the y axis</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Trust in science&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+
+<span class="c1"># Include this command such that all the elements of the plot appear in the figure</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+<span class="c1"># Save figure</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figure.tif&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;tiff&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/8c3ee9231bdfd866207d0b20203aa9d32d27a7a2e0fc03582ae46040cf8ab5a1.png" src="_images/8c3ee9231bdfd866207d0b20203aa9d32d27a7a2e0fc03582ae46040cf8ab5a1.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "mada_book"
+        },
+        kernelOptions: {
+            name: "mada_book",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'mada_book'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Welcome to PSYCH-GA 2229 Regression (2024 Spring)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="02_Regression_Week3_TTests.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">T-Test</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wide-to-long-transformations">Wide to long transformations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-subsets-of-your-dataframe">Selecting subsets of your dataframe</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlations">Correlations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plots">Plots</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Madalina Vlasceanu, Ph.D., Ke Fang
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
