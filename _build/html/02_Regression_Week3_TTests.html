@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>T-Test &#8212; PSYCH-GA 2229 Regression (2024 Spring)</title>
   
@@ -180,10 +180,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="01_Regression_Week2_DataManipulation%26Correlations.html">Data Manipulation and Correlations</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">T-Test</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_Regression_Week4_ChiSquare.html">Chi Square Test</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04_Regression_Week5_ANOVA.html">ANOVA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_Regression_Week6_Regression.html">Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06_Regression_Week7_Mediation.html">Mediation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_Regression_Week8_NonlinearRegression.html">Logistic, Poisson, Multinomial, and Ordinal Regression</a></li>
 </ul>
 
     </div>
@@ -589,7 +587,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\kay\AppData\Local\Temp\ipykernel_24132\914974243.py:7: UserWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/53/6ypqgtmd38ggqwb6vvtqdz6h0000gp/T/ipykernel_43721/914974243.py:7: UserWarning: 
 
 `distplot` is a deprecated function and will be removed in seaborn v0.14.0.
 
@@ -600,11 +598,9 @@ For a guide to updating your code to use the new functions, please see
 https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 
   sns.distplot(trustD, hist=True, norm_hist=True, kde=True, bins=10, color = &#39;#327AAE&#39;, ax=ax)
-C:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\seaborn\_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
-  with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
 </pre></div>
 </div>
-<img alt="_images/4779ad633e1118879cc3b25fdc7ef84aff1309ed221aca9fd94e0cad16a59cef.png" src="_images/4779ad633e1118879cc3b25fdc7ef84aff1309ed221aca9fd94e0cad16a59cef.png" />
+<img alt="_images/f809b12d73c6605fa03ab6ac48dde53fff240f4d88e68c6d435d819354f8624c.png" src="_images/f809b12d73c6605fa03ab6ac48dde53fff240f4d88e68c6d435d819354f8624c.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -672,7 +668,7 @@ C:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\seaborn\_oldcore.py:11
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TtestResult(statistic=15.967309469564503, pvalue=4.621060382873896e-32, df=126)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TtestResult(statistic=15.967309469564503, pvalue=4.6210603828739616e-32, df=126)
 </pre></div>
 </div>
 </div>
@@ -694,7 +690,7 @@ C:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\seaborn\_oldcore.py:11
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/907b1042716eaaf77504c3948958606e92a8cb2a01bfd76fdac48b9cee744ff9.png" src="_images/907b1042716eaaf77504c3948958606e92a8cb2a01bfd76fdac48b9cee744ff9.png" />
+<img alt="_images/f18ad1c5bcb1e6f061cbbbb69e9df444b16768667bf86c7c1fa9c3efbfe18358.png" src="_images/f18ad1c5bcb1e6f061cbbbb69e9df444b16768667bf86c7c1fa9c3efbfe18358.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -708,7 +704,7 @@ C:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\seaborn\_oldcore.py:11
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ShapiroResult(statistic=0.9229094386100769, pvalue=2.0021473119413713e-06)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ShapiroResult(statistic=0.922909140586853, pvalue=2.002060000450001e-06)
 </pre></div>
 </div>
 </div>
@@ -780,7 +776,7 @@ C:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\seaborn\_oldcore.py:11
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;PARTY&#39;, ylabel=&#39;TRUST&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/c6c657bf167a6e65a0cf4b90a5d48dbee7a4598b10bd64f5856be2ceb571d394.png" src="_images/c6c657bf167a6e65a0cf4b90a5d48dbee7a4598b10bd64f5856be2ceb571d394.png" />
+<img alt="_images/490b051b4792be92e4deabc52c68c19b9ef03a498754a448827e4cceca14e8b6.png" src="_images/490b051b4792be92e4deabc52c68c19b9ef03a498754a448827e4cceca14e8b6.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -810,7 +806,7 @@ C:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\seaborn\_oldcore.py:11
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b722e79e8e7c16e7680a5303fd1e2792645a39b6f33d8058db1dc670722ab71e.png" src="_images/b722e79e8e7c16e7680a5303fd1e2792645a39b6f33d8058db1dc670722ab71e.png" />
+<img alt="_images/bb14dae018e1ea2afeeab9a4b3d5e15e78045032237ff6e3a33de6f692aa10b4.png" src="_images/bb14dae018e1ea2afeeab9a4b3d5e15e78045032237ff6e3a33de6f692aa10b4.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -839,7 +835,7 @@ C:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\seaborn\_oldcore.py:11
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\kay\AppData\Local\Temp\ipykernel_24132\3661408836.py:8: UserWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/53/6ypqgtmd38ggqwb6vvtqdz6h0000gp/T/ipykernel_43721/3661408836.py:8: UserWarning: 
 
 `distplot` is a deprecated function and will be removed in seaborn v0.14.0.
 
@@ -850,9 +846,7 @@ For a guide to updating your code to use the new functions, please see
 https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 
   sns.distplot(df.query(&#39;PARTY==1&#39;)[&#39;TRUST&#39;], hist=True, norm_hist=True, kde=True, bins=10, color = &#39;#327AAE&#39;, ax=ax)
-C:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\seaborn\_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
-  with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
-C:\Users\kay\AppData\Local\Temp\ipykernel_24132\3661408836.py:11: UserWarning: 
+/var/folders/53/6ypqgtmd38ggqwb6vvtqdz6h0000gp/T/ipykernel_43721/3661408836.py:11: UserWarning: 
 
 `distplot` is a deprecated function and will be removed in seaborn v0.14.0.
 
@@ -863,11 +857,9 @@ For a guide to updating your code to use the new functions, please see
 https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 
   sns.distplot(df.query(&#39;PARTY==2&#39;)[&#39;TRUST&#39;], hist=True, norm_hist=True, kde=True, bins=10, color = &#39;#F93F17&#39;, ax=ax)
-C:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\seaborn\_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
-  with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
 </pre></div>
 </div>
-<img alt="_images/854285d5cd18a73e10c36f52994f7abda82dd21d8c5e29e4ef27d46ecd658ec7.png" src="_images/854285d5cd18a73e10c36f52994f7abda82dd21d8c5e29e4ef27d46ecd658ec7.png" />
+<img alt="_images/e259223a07a5dad620f2a1c92880fb9e2de86ed51736761bfb74df132b090908.png" src="_images/e259223a07a5dad620f2a1c92880fb9e2de86ed51736761bfb74df132b090908.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -896,7 +888,7 @@ C:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\seaborn\_oldcore.py:11
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\kay\AppData\Local\Temp\ipykernel_24132\2675075539.py:7: UserWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/53/6ypqgtmd38ggqwb6vvtqdz6h0000gp/T/ipykernel_43721/2675075539.py:7: UserWarning: 
 
 `distplot` is a deprecated function and will be removed in seaborn v0.14.0.
 
@@ -907,9 +899,7 @@ For a guide to updating your code to use the new functions, please see
 https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 
   sns.distplot(df.query(&#39;PARTY==1&#39;)[&#39;TRUST&#39;], hist=True, norm_hist=True, kde=True, bins=10, color = &#39;#327AAE&#39;, ax=ax[0])
-C:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\seaborn\_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
-  with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
-C:\Users\kay\AppData\Local\Temp\ipykernel_24132\2675075539.py:10: UserWarning: 
+/var/folders/53/6ypqgtmd38ggqwb6vvtqdz6h0000gp/T/ipykernel_43721/2675075539.py:10: UserWarning: 
 
 `distplot` is a deprecated function and will be removed in seaborn v0.14.0.
 
@@ -920,11 +910,9 @@ For a guide to updating your code to use the new functions, please see
 https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 
   sns.distplot(df.query(&#39;PARTY==2&#39;)[&#39;TRUST&#39;], hist=True, norm_hist=True, kde=True, bins=10, color = &#39;#F93F17&#39;, ax=ax[1])
-C:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\seaborn\_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
-  with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
 </pre></div>
 </div>
-<img alt="_images/8cf911a1beb18adc033981e8117f9cf0d165f8314f2b4c41ccafa508866cdb39.png" src="_images/8cf911a1beb18adc033981e8117f9cf0d165f8314f2b4c41ccafa508866cdb39.png" />
+<img alt="_images/72bd20d4cd302726231d3eacea1a012ba7309582e0d807051ff6fea1893db050.png" src="_images/72bd20d4cd302726231d3eacea1a012ba7309582e0d807051ff6fea1893db050.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -937,7 +925,7 @@ C:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\seaborn\_oldcore.py:11
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TtestResult(statistic=3.327609101320773, pvalue=0.0011085288899397455, df=146.0)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ttest_indResult(statistic=3.327609101320773, pvalue=0.0011085288899397457)
 </pre></div>
 </div>
 </div>
@@ -1016,7 +1004,7 @@ C:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\seaborn\_oldcore.py:11
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/080379ec66dedf2989d856d24a8fc16689faa3efdc01c71176fb8d2853d61fcd.png" src="_images/080379ec66dedf2989d856d24a8fc16689faa3efdc01c71176fb8d2853d61fcd.png" />
+<img alt="_images/a11d98c049575972ba8ee9fb4ebe41ae0604cf42e8f0482a8ae037b66ce60a51.png" src="_images/a11d98c049575972ba8ee9fb4ebe41ae0604cf42e8f0482a8ae037b66ce60a51.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1030,7 +1018,7 @@ C:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\seaborn\_oldcore.py:11
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ShapiroResult(statistic=0.9229094386100769, pvalue=2.0021473119413713e-06)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ShapiroResult(statistic=0.922909140586853, pvalue=2.002060000450001e-06)
 </pre></div>
 </div>
 </div>
@@ -1515,7 +1503,7 @@ C:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\seaborn\_oldcore.py:11
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(60.0, 80.0)
 </pre></div>
 </div>
-<img alt="_images/b5d4ea4548d8c934f95d3ce3c4671020b8f5f6b01941cd378d8ed2d19372a489.png" src="_images/b5d4ea4548d8c934f95d3ce3c4671020b8f5f6b01941cd378d8ed2d19372a489.png" />
+<img alt="_images/cd6816e923a86d33b3bb09e9be1e495cf1ee5481769e545fc358f2ab9b2046d1.png" src="_images/cd6816e923a86d33b3bb09e9be1e495cf1ee5481769e545fc358f2ab9b2046d1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1668,16 +1656,16 @@ Zhang, Z., &amp; Yuan, K.-H. (2018). Practical Statistical Power Analysis Using
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "mada_book"
+            mode: "python"
         },
         kernelOptions: {
-            name: "mada_book",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'mada_book'</script>
+    <script>kernelName = 'python3'</script>
 
                 </article>
               
