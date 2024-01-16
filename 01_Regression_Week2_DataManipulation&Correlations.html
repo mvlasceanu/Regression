@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Data Manipulation and Correlations &#8212; PSYCH-GA 2229 Regression (2024 Spring)</title>
   
@@ -180,10 +180,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Data Manipulation and Correlations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_Regression_Week3_TTests.html">T-Test</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_Regression_Week4_ChiSquare.html">Chi Square Test</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04_Regression_Week5_ANOVA.html">ANOVA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_Regression_Week6_Regression.html">Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06_Regression_Week7_Mediation.html">Mediation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_Regression_Week8_NonlinearRegression.html">Logistic, Poisson, Multinomial, and Ordinal Regression</a></li>
 </ul>
 
     </div>
@@ -406,6 +404,13 @@ document.write(`
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># testing</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import libraries</span>
 
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -559,22 +564,22 @@ document.write(`
       <th>Response ID</th>
       <th>GENDER</th>
       <th>Item</th>
-      <th>TWITTER</th>
+      <th>Post4</th>
+      <th>Post20</th>
+      <th>Post5</th>
+      <th>Post31</th>
       <th>Post27</th>
-      <th>Post2</th>
-      <th>Post14</th>
-      <th>Post11</th>
-      <th>Post12</th>
-      <th>PARTY</th>
-      <th>...</th>
-      <th>Post18</th>
+      <th>Post1</th>
       <th>Post10</th>
-      <th>Post16</th>
-      <th>Post29</th>
-      <th>Post26</th>
-      <th>TRUST</th>
-      <th>Post15</th>
-      <th>Post19</th>
+      <th>...</th>
+      <th>Post23</th>
+      <th>Post6</th>
+      <th>Post28</th>
+      <th>Post18</th>
+      <th>Post32</th>
+      <th>Post24</th>
+      <th>Post17</th>
+      <th>Post22</th>
       <th>RU</th>
       <th>Pre</th>
     </tr>
@@ -585,22 +590,22 @@ document.write(`
       <td>R_0cj5dsJg2wfpiuJ</td>
       <td>1</td>
       <td>1</td>
-      <td>0</td>
-      <td>84</td>
+      <td>25</td>
+      <td>46</td>
       <td>90</td>
-      <td>80</td>
-      <td>31</td>
-      <td>35</td>
-      <td>1</td>
-      <td>...</td>
-      <td>55</td>
+      <td>90</td>
+      <td>84</td>
+      <td>87.0</td>
       <td>10</td>
-      <td>23</td>
-      <td>42</td>
-      <td>58</td>
-      <td>95</td>
+      <td>...</td>
+      <td>69</td>
+      <td>29</td>
+      <td>22</td>
+      <td>55</td>
+      <td>71</td>
+      <td>60</td>
+      <td>64</td>
       <td>57</td>
-      <td>20</td>
       <td>4.0</td>
       <td>83</td>
     </tr>
@@ -609,22 +614,22 @@ document.write(`
       <td>R_0cj5dsJg2wfpiuJ</td>
       <td>1</td>
       <td>2</td>
-      <td>0</td>
-      <td>84</td>
+      <td>25</td>
+      <td>46</td>
       <td>90</td>
-      <td>80</td>
-      <td>31</td>
-      <td>35</td>
-      <td>1</td>
-      <td>...</td>
-      <td>55</td>
+      <td>90</td>
+      <td>84</td>
+      <td>87.0</td>
       <td>10</td>
-      <td>23</td>
-      <td>42</td>
-      <td>58</td>
-      <td>95</td>
+      <td>...</td>
+      <td>69</td>
+      <td>29</td>
+      <td>22</td>
+      <td>55</td>
+      <td>71</td>
+      <td>60</td>
+      <td>64</td>
       <td>57</td>
-      <td>20</td>
       <td>26.0</td>
       <td>64</td>
     </tr>
@@ -633,22 +638,22 @@ document.write(`
       <td>R_0cj5dsJg2wfpiuJ</td>
       <td>1</td>
       <td>3</td>
-      <td>0</td>
-      <td>84</td>
+      <td>25</td>
+      <td>46</td>
       <td>90</td>
-      <td>80</td>
-      <td>31</td>
-      <td>35</td>
-      <td>1</td>
-      <td>...</td>
-      <td>55</td>
+      <td>90</td>
+      <td>84</td>
+      <td>87.0</td>
       <td>10</td>
-      <td>23</td>
-      <td>42</td>
-      <td>58</td>
-      <td>95</td>
+      <td>...</td>
+      <td>69</td>
+      <td>29</td>
+      <td>22</td>
+      <td>55</td>
+      <td>71</td>
+      <td>60</td>
+      <td>64</td>
       <td>57</td>
-      <td>20</td>
       <td>0.0</td>
       <td>20</td>
     </tr>
@@ -657,22 +662,22 @@ document.write(`
       <td>R_0cj5dsJg2wfpiuJ</td>
       <td>1</td>
       <td>4</td>
-      <td>0</td>
-      <td>84</td>
+      <td>25</td>
+      <td>46</td>
       <td>90</td>
-      <td>80</td>
-      <td>31</td>
-      <td>35</td>
-      <td>1</td>
-      <td>...</td>
-      <td>55</td>
+      <td>90</td>
+      <td>84</td>
+      <td>87.0</td>
       <td>10</td>
-      <td>23</td>
-      <td>42</td>
-      <td>58</td>
-      <td>95</td>
+      <td>...</td>
+      <td>69</td>
+      <td>29</td>
+      <td>22</td>
+      <td>55</td>
+      <td>71</td>
+      <td>60</td>
+      <td>64</td>
       <td>57</td>
-      <td>20</td>
       <td>-5.0</td>
       <td>30</td>
     </tr>
@@ -681,22 +686,22 @@ document.write(`
       <td>R_0cj5dsJg2wfpiuJ</td>
       <td>1</td>
       <td>5</td>
-      <td>0</td>
-      <td>84</td>
+      <td>25</td>
+      <td>46</td>
       <td>90</td>
-      <td>80</td>
-      <td>31</td>
-      <td>35</td>
-      <td>1</td>
-      <td>...</td>
-      <td>55</td>
+      <td>90</td>
+      <td>84</td>
+      <td>87.0</td>
       <td>10</td>
-      <td>23</td>
-      <td>42</td>
-      <td>58</td>
-      <td>95</td>
+      <td>...</td>
+      <td>69</td>
+      <td>29</td>
+      <td>22</td>
+      <td>55</td>
+      <td>71</td>
+      <td>60</td>
+      <td>64</td>
       <td>57</td>
-      <td>20</td>
       <td>4.0</td>
       <td>86</td>
     </tr>
@@ -729,22 +734,22 @@ document.write(`
       <td>R_ZpYHWVd91u6fjBT</td>
       <td>0</td>
       <td>28</td>
-      <td>0</td>
-      <td>35</td>
-      <td>55</td>
-      <td>40</td>
-      <td>33</td>
-      <td>33</td>
-      <td>1</td>
-      <td>...</td>
-      <td>38</td>
-      <td>62</td>
-      <td>56</td>
+      <td>64</td>
       <td>24</td>
-      <td>37</td>
-      <td>66</td>
-      <td>17</td>
-      <td>70</td>
+      <td>61</td>
+      <td>33</td>
+      <td>35</td>
+      <td>69.0</td>
+      <td>62</td>
+      <td>...</td>
+      <td>56</td>
+      <td>44</td>
+      <td>9</td>
+      <td>38</td>
+      <td>67</td>
+      <td>40</td>
+      <td>65</td>
+      <td>62</td>
       <td>23.0</td>
       <td>32</td>
     </tr>
@@ -753,22 +758,22 @@ document.write(`
       <td>R_ZpYHWVd91u6fjBT</td>
       <td>0</td>
       <td>29</td>
-      <td>0</td>
-      <td>35</td>
-      <td>55</td>
-      <td>40</td>
-      <td>33</td>
-      <td>33</td>
-      <td>1</td>
-      <td>...</td>
-      <td>38</td>
-      <td>62</td>
-      <td>56</td>
+      <td>64</td>
       <td>24</td>
-      <td>37</td>
-      <td>66</td>
-      <td>17</td>
-      <td>70</td>
+      <td>61</td>
+      <td>33</td>
+      <td>35</td>
+      <td>69.0</td>
+      <td>62</td>
+      <td>...</td>
+      <td>56</td>
+      <td>44</td>
+      <td>9</td>
+      <td>38</td>
+      <td>67</td>
+      <td>40</td>
+      <td>65</td>
+      <td>62</td>
       <td>-24.0</td>
       <td>0</td>
     </tr>
@@ -777,22 +782,22 @@ document.write(`
       <td>R_ZpYHWVd91u6fjBT</td>
       <td>0</td>
       <td>30</td>
-      <td>0</td>
-      <td>35</td>
-      <td>55</td>
-      <td>40</td>
-      <td>33</td>
-      <td>33</td>
-      <td>1</td>
-      <td>...</td>
-      <td>38</td>
-      <td>62</td>
-      <td>56</td>
+      <td>64</td>
       <td>24</td>
-      <td>37</td>
-      <td>66</td>
-      <td>17</td>
-      <td>70</td>
+      <td>61</td>
+      <td>33</td>
+      <td>35</td>
+      <td>69.0</td>
+      <td>62</td>
+      <td>...</td>
+      <td>56</td>
+      <td>44</td>
+      <td>9</td>
+      <td>38</td>
+      <td>67</td>
+      <td>40</td>
+      <td>65</td>
+      <td>62</td>
       <td>-20.0</td>
       <td>17</td>
     </tr>
@@ -801,22 +806,22 @@ document.write(`
       <td>R_ZpYHWVd91u6fjBT</td>
       <td>0</td>
       <td>31</td>
-      <td>0</td>
-      <td>35</td>
-      <td>55</td>
-      <td>40</td>
-      <td>33</td>
-      <td>33</td>
-      <td>1</td>
-      <td>...</td>
-      <td>38</td>
-      <td>62</td>
-      <td>56</td>
+      <td>64</td>
       <td>24</td>
-      <td>37</td>
-      <td>66</td>
-      <td>17</td>
-      <td>70</td>
+      <td>61</td>
+      <td>33</td>
+      <td>35</td>
+      <td>69.0</td>
+      <td>62</td>
+      <td>...</td>
+      <td>56</td>
+      <td>44</td>
+      <td>9</td>
+      <td>38</td>
+      <td>67</td>
+      <td>40</td>
+      <td>65</td>
+      <td>62</td>
       <td>36.0</td>
       <td>69</td>
     </tr>
@@ -825,22 +830,22 @@ document.write(`
       <td>R_ZpYHWVd91u6fjBT</td>
       <td>0</td>
       <td>32</td>
-      <td>0</td>
-      <td>35</td>
-      <td>55</td>
-      <td>40</td>
-      <td>33</td>
-      <td>33</td>
-      <td>1</td>
-      <td>...</td>
-      <td>38</td>
-      <td>62</td>
-      <td>56</td>
+      <td>64</td>
       <td>24</td>
-      <td>37</td>
-      <td>66</td>
-      <td>17</td>
-      <td>70</td>
+      <td>61</td>
+      <td>33</td>
+      <td>35</td>
+      <td>69.0</td>
+      <td>62</td>
+      <td>...</td>
+      <td>56</td>
+      <td>44</td>
+      <td>9</td>
+      <td>38</td>
+      <td>67</td>
+      <td>40</td>
+      <td>65</td>
+      <td>62</td>
       <td>1.0</td>
       <td>68</td>
     </tr>
@@ -1423,7 +1428,7 @@ Name: TRUST, Length: 129, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PearsonRResult(statistic=0.012687557785958276, pvalue=0.8584782150756923)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PearsonRResult(statistic=0.012687557785958224, pvalue=0.8584782150756924)
 </pre></div>
 </div>
 </div>
@@ -1463,7 +1468,7 @@ Name: TRUST, Length: 129, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/362861663f8d5ce18944813ab80419f13bdd2e7af85d78d40511cee3e4239ace.png" src="_images/362861663f8d5ce18944813ab80419f13bdd2e7af85d78d40511cee3e4239ace.png" />
+<img alt="_images/783102fe9eca16c5a6c5ce9a8f8622c21c82685867c35ea60f8674321349bdda.png" src="_images/783102fe9eca16c5a6c5ce9a8f8622c21c82685867c35ea60f8674321349bdda.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1494,7 +1499,7 @@ Name: TRUST, Length: 129, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/9a7974c6873875e3f0a24aa6bf3b1bcd6fdb4d872fdfe17ffb3c0c090fae8396.png" src="_images/9a7974c6873875e3f0a24aa6bf3b1bcd6fdb4d872fdfe17ffb3c0c090fae8396.png" />
+<img alt="_images/1b2bfd7afc91174c0803eb60a59c612ace30e606f844377f454cefe39cab445b.png" src="_images/1b2bfd7afc91174c0803eb60a59c612ace30e606f844377f454cefe39cab445b.png" />
 </div>
 </div>
 <p>Let’s recreate the figure above but remove the scatter dots</p>
@@ -1526,7 +1531,7 @@ Name: TRUST, Length: 129, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8c3ee9231bdfd866207d0b20203aa9d32d27a7a2e0fc03582ae46040cf8ab5a1.png" src="_images/8c3ee9231bdfd866207d0b20203aa9d32d27a7a2e0fc03582ae46040cf8ab5a1.png" />
+<img alt="_images/a3fa6081bb41dcb7d073a52ae5fd3f573304e78041b4a45a13e7c180044a3ebb.png" src="_images/a3fa6081bb41dcb7d073a52ae5fd3f573304e78041b4a45a13e7c180044a3ebb.png" />
 </div>
 </div>
 </section>
@@ -1541,16 +1546,16 @@ Name: TRUST, Length: 129, dtype: int64
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "mada_book"
+            mode: "python"
         },
         kernelOptions: {
-            name: "mada_book",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'mada_book'</script>
+    <script>kernelName = 'python3'</script>
 
                 </article>
               

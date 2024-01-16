@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Chi Square Test &#8212; PSYCH-GA 2229 Regression (2024 Spring)</title>
   
@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = '03_Regression_Week4_ChiSquare';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="ANOVA" href="04_Regression_Week5_ANOVA.html" />
+    <link rel="next" title="Regression" href="05_Regression_Week6_Regression.html" />
     <link rel="prev" title="T-Test" href="02_Regression_Week3_TTests.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -180,10 +180,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="01_Regression_Week2_DataManipulation%26Correlations.html">Data Manipulation and Correlations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_Regression_Week3_TTests.html">T-Test</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Chi Square Test</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04_Regression_Week5_ANOVA.html">ANOVA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_Regression_Week6_Regression.html">Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06_Regression_Week7_Mediation.html">Mediation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_Regression_Week8_NonlinearRegression.html">Logistic, Poisson, Multinomial, and Ordinal Regression</a></li>
 </ul>
 
     </div>
@@ -587,7 +585,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\kay\AppData\Local\Temp\ipykernel_15972\3444304390.py:5: UserWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/53/6ypqgtmd38ggqwb6vvtqdz6h0000gp/T/ipykernel_43738/3444304390.py:5: UserWarning: 
 
 `distplot` is a deprecated function and will be removed in seaborn v0.14.0.
 
@@ -598,11 +596,9 @@ For a guide to updating your code to use the new functions, please see
 https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 
   sns.distplot(df[&quot;PRE_female&quot;], ax=ax[1])
-C:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\seaborn\_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
-  with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
 </pre></div>
 </div>
-<img alt="_images/e298fddec144a8ae8b8e6a4be44e3ba25529acf21339ffa33aa30eeb0702b140.png" src="_images/e298fddec144a8ae8b8e6a4be44e3ba25529acf21339ffa33aa30eeb0702b140.png" />
+<img alt="_images/bc3139a2e43711c02dbf2d3b16414e35eea42874588647e151952cd8a2ec8aed.png" src="_images/bc3139a2e43711c02dbf2d3b16414e35eea42874588647e151952cd8a2ec8aed.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -686,7 +682,7 @@ Name: PRE_female, Length: 260, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([159, 101], dtype=int64)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([159, 101])
 </pre></div>
 </div>
 </div>
@@ -701,10 +697,9 @@ Name: PRE_female, Length: 260, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PRE_female
-0    159
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    159
 1    101
-Name: count, dtype: int64
+Name: PRE_female, dtype: int64
 </pre></div>
 </div>
 </div>
@@ -780,7 +775,7 @@ Name: count, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b2265c0f91be3bdd8d6880d559ce36ce34d14769beb25aed4fb2df6cb39772f2.png" src="_images/b2265c0f91be3bdd8d6880d559ce36ce34d14769beb25aed4fb2df6cb39772f2.png" />
+<img alt="_images/39c8c2bae702dc0e17d53243795a3df13cc014bafa6c7fdd4c63bf66eb4306b2.png" src="_images/39c8c2bae702dc0e17d53243795a3df13cc014bafa6c7fdd4c63bf66eb4306b2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -940,7 +935,7 @@ Name: count, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/51296d50887d8bec290977bdc5c8ed97f67b5ead6bface977026fa65e2f2abb7.png" src="_images/51296d50887d8bec290977bdc5c8ed97f67b5ead6bface977026fa65e2f2abb7.png" />
+<img alt="_images/77b7bae0593d8b6edacd0575817f02170922c76432f0381a66e96479fd885193.png" src="_images/77b7bae0593d8b6edacd0575817f02170922c76432f0381a66e96479fd885193.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1087,16 +1082,16 @@ statistic   24.0
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "mada_book"
+            mode: "python"
         },
         kernelOptions: {
-            name: "mada_book",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'mada_book'</script>
+    <script>kernelName = 'python3'</script>
 
                 </article>
               
@@ -1118,11 +1113,11 @@ statistic   24.0
       </div>
     </a>
     <a class="right-next"
-       href="04_Regression_Week5_ANOVA.html"
+       href="05_Regression_Week6_Regression.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">ANOVA</p>
+        <p class="prev-next-title">Regression</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
