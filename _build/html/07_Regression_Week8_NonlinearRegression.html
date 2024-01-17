@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Logistic, Poisson, Multinomial, and Ordinal Regression &#8212; PSYCH-GA 2229 Regression (2024 Spring)</title>
   
@@ -817,8 +817,8 @@ Model:                            GLM   Df Residuals:                    29998
 Model Family:                Binomial   Df Model:                            1
 Link Function:                  Logit   Scale:                          1.0000
 Method:                          IRLS   Log-Likelihood:                -15841.
-Date:                Tue, 16 Jan 2024   Deviance:                       31682.
-Time:                        17:07:38   Pearson chi2:                 3.00e+04
+Date:                Wed, 17 Jan 2024   Deviance:                       31682.
+Time:                        12:15:32   Pearson chi2:                 3.00e+04
 No. Iterations:                     5   Pseudo R-squ. (CS):          0.0007751
 Covariance Type:            nonrobust                                         
 ==============================================================================
@@ -850,8 +850,8 @@ EDUCATION      0.0839      0.017      4.848      0.000       0.050       0.118
 Dep. Variable:                DEFAULT   No. Observations:                30000
 Model:                          Logit   Df Residuals:                    29998
 Method:                           MLE   Df Model:                            1
-Date:                Tue, 16 Jan 2024   Pseudo R-squ.:               0.0007337
-Time:                        17:07:38   Log-Likelihood:                -15841.
+Date:                Wed, 17 Jan 2024   Pseudo R-squ.:               0.0007337
+Time:                        12:15:32   Log-Likelihood:                -15841.
 converged:                       True   LL-Null:                       -15853.
 Covariance Type:            nonrobust   LLR p-value:                 1.414e-06
 ==============================================================================
@@ -878,29 +878,31 @@ EDUCATION      0.0839      0.017      4.848      0.000       0.050       0.118
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning: Maximum number of iterations has been exceeded.
          Current function value: 0.525344
          Iterations: 35
-                           Logit Regression Results                           
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                           Logit Regression Results                           
 ==============================================================================
 Dep. Variable:                DEFAULT   No. Observations:                30000
 Model:                          Logit   Df Residuals:                    29993
 Method:                           MLE   Df Model:                            6
-Date:                Tue, 16 Jan 2024   Pseudo R-squ.:                0.005826
-Time:                        17:07:38   Log-Likelihood:                -15760.
+Date:                Wed, 17 Jan 2024   Pseudo R-squ.:                0.005826
+Time:                        12:15:32   Log-Likelihood:                -15760.
 converged:                      False   LL-Null:                       -15853.
 Covariance Type:            nonrobust   LLR p-value:                 3.392e-37
 =====================================================================================
                         coef    std err          z      P&gt;|z|      [0.025      0.975]
 -------------------------------------------------------------------------------------
-Intercept           -20.7490   8561.107     -0.002      0.998   -1.68e+04    1.68e+04
-C(EDUCATION)[T.1]    19.3142   8561.107      0.002      0.998   -1.68e+04    1.68e+04
-C(EDUCATION)[T.2]    19.5817   8561.107      0.002      0.998   -1.68e+04    1.68e+04
-C(EDUCATION)[T.3]    19.6588   8561.107      0.002      0.998   -1.68e+04    1.68e+04
-C(EDUCATION)[T.4]    17.9413   8561.107      0.002      0.998   -1.68e+04    1.68e+04
-C(EDUCATION)[T.5]    18.0710   8561.107      0.002      0.998   -1.68e+04    1.68e+04
-C(EDUCATION)[T.6]    19.0672   8561.107      0.002      0.998   -1.68e+04    1.68e+04
+Intercept           -20.7459   8547.755     -0.002      0.998   -1.68e+04    1.67e+04
+C(EDUCATION)[T.1]    19.3111   8547.755      0.002      0.998   -1.67e+04    1.68e+04
+C(EDUCATION)[T.2]    19.5787   8547.755      0.002      0.998   -1.67e+04    1.68e+04
+C(EDUCATION)[T.3]    19.6557   8547.755      0.002      0.998   -1.67e+04    1.68e+04
+C(EDUCATION)[T.4]    17.9383   8547.755      0.002      0.998   -1.67e+04    1.68e+04
+C(EDUCATION)[T.5]    18.0680   8547.755      0.002      0.998   -1.67e+04    1.68e+04
+C(EDUCATION)[T.6]    19.0642   8547.755      0.002      0.998   -1.67e+04    1.68e+04
 =====================================================================================
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/madalina/anaconda3/lib/python3.11/site-packages/statsmodels/base/model.py:607: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\statsmodels\base\model.py:607: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
   warnings.warn(&quot;Maximum Likelihood optimization failed to &quot;
 </pre></div>
 </div>
@@ -968,8 +970,8 @@ C(EDUCATION)[T.6]    19.0672   8561.107      0.002      0.998   -1.68e+04    1.6
 Dep. Variable:                DEFAULT   No. Observations:                30000
 Model:                          Logit   Df Residuals:                    29995
 Method:                           MLE   Df Model:                            4
-Date:                Tue, 16 Jan 2024   Pseudo R-squ.:                0.002731
-Time:                        17:07:39   Log-Likelihood:                -15809.
+Date:                Wed, 17 Jan 2024   Pseudo R-squ.:                0.002731
+Time:                        12:15:32   Log-Likelihood:                -15809.
 converged:                       True   LL-Null:                       -15853.
 Covariance Type:            nonrobust   LLR p-value:                 6.938e-18
 ==============================================================================
@@ -1006,8 +1008,8 @@ SEX           -0.2027      0.028     -7.133      0.000      -0.258      -0.147
 Dep. Variable:                DEFAULT   No. Observations:                30000
 Model:                          Logit   Df Residuals:                    29994
 Method:                           MLE   Df Model:                            5
-Date:                Tue, 16 Jan 2024   Pseudo R-squ.:                0.002754
-Time:                        17:07:39   Log-Likelihood:                -15809.
+Date:                Wed, 17 Jan 2024   Pseudo R-squ.:                0.002754
+Time:                        12:15:32   Log-Likelihood:                -15809.
 converged:                       True   LL-Null:                       -15853.
 Covariance Type:            nonrobust   LLR p-value:                 2.473e-17
 ================================================================================
@@ -1151,7 +1153,7 @@ MARRIAGE:SEX     0.0455      0.054      0.839      0.401      -0.061       0.152
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 1])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 1], dtype=int64)
 </pre></div>
 </div>
 </div>
@@ -1174,8 +1176,8 @@ Model:                            GLM   Df Residuals:                     9998
 Model Family:                Binomial   Df Model:                            1
 Link Function:                  Logit   Scale:                          1.0000
 Method:                          IRLS   Log-Likelihood:                -1454.3
-Date:                Tue, 16 Jan 2024   Deviance:                       2908.7
-Time:                        17:07:39   Pearson chi2:                 1.00e+04
+Date:                Wed, 17 Jan 2024   Deviance:                       2908.7
+Time:                        12:15:32   Pearson chi2:                 1.00e+04
 No. Iterations:                     6   Pseudo R-squ. (CS):           0.001196
 Covariance Type:            nonrobust                                         
 ==============================================================================
@@ -1206,8 +1208,8 @@ Model:                            GLM   Df Residuals:                     9998
 Model Family:                Binomial   Df Model:                            1
 Link Function:                  Logit   Scale:                          1.0000
 Method:                          IRLS   Log-Likelihood:                -1454.3
-Date:                Tue, 16 Jan 2024   Deviance:                       2908.7
-Time:                        17:07:39   Pearson chi2:                 1.00e+04
+Date:                Wed, 17 Jan 2024   Deviance:                       2908.7
+Time:                        12:15:32   Pearson chi2:                 1.00e+04
 No. Iterations:                     6   Pseudo R-squ. (CS):           0.001196
 Covariance Type:            nonrobust                                         
 ===================================================================================
@@ -1231,7 +1233,7 @@ C(student)[T.1]     0.4049      0.115      3.520      0.000       0.179       0.
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;balance&#39;, ylabel=&#39;default&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/5158ca5d671bef91a317d1ac08c9927b109f0476282d6c5379b66fe40b1f68c9.png" src="_images/5158ca5d671bef91a317d1ac08c9927b109f0476282d6c5379b66fe40b1f68c9.png" />
+<img alt="_images/e296bbef66ad0024a5bdf23f7bf0fc774897a516652c28403153bd44cbf47cc0.png" src="_images/e296bbef66ad0024a5bdf23f7bf0fc774897a516652c28403153bd44cbf47cc0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1252,8 +1254,8 @@ Model:                            GLM   Df Residuals:                     9998
 Model Family:                Binomial   Df Model:                            1
 Link Function:                  Logit   Scale:                          1.0000
 Method:                          IRLS   Log-Likelihood:                -798.23
-Date:                Tue, 16 Jan 2024   Deviance:                       1596.5
-Time:                        17:07:52   Pearson chi2:                 7.15e+03
+Date:                Wed, 17 Jan 2024   Deviance:                       1596.5
+Time:                        12:16:00   Pearson chi2:                 7.15e+03
 No. Iterations:                     9   Pseudo R-squ. (CS):             0.1240
 Covariance Type:            nonrobust                                         
 ==============================================================================
@@ -1486,8 +1488,8 @@ balance        0.0055      0.000     24.952      0.000       0.005       0.006
 Dep. Variable:                  PARTY   No. Observations:                  200
 Model:                        MNLogit   Df Residuals:                      196
 Method:                           MLE   Df Model:                            2
-Date:                Tue, 16 Jan 2024   Pseudo R-squ.:                 0.04317
-Time:                        17:07:52   Log-Likelihood:                -167.50
+Date:                Wed, 17 Jan 2024   Pseudo R-squ.:                 0.04317
+Time:                        12:16:01   Log-Likelihood:                -167.50
 converged:                       True   LL-Null:                       -175.05
 Covariance Type:            nonrobust   LLR p-value:                 0.0005229
 ==============================================================================
@@ -1727,8 +1729,8 @@ Model:                            GLM   Df Residuals:                      212
 Model Family:                 Poisson   Df Model:                            1
 Link Function:                    Log   Scale:                          1.0000
 Method:                          IRLS   Log-Likelihood:                -21245.
-Date:                Tue, 16 Jan 2024   Deviance:                       40425.
-Time:                        17:07:53   Pearson chi2:                 3.84e+04
+Date:                Wed, 17 Jan 2024   Deviance:                       40425.
+Time:                        12:16:02   Pearson chi2:                 3.84e+04
 No. Iterations:                     6   Pseudo R-squ. (CS):              1.000
 Covariance Type:            nonrobust                                         
 ==============================================================================
@@ -1955,7 +1957,7 @@ Here, we will run an ordered logit as an example.</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
 </pre></div>
 </div>
-<img alt="_images/84ab74b2e678667f040c76ac0fbe53412e2ffd26db1440e3d4f1cb7e88a4dc34.png" src="_images/84ab74b2e678667f040c76ac0fbe53412e2ffd26db1440e3d4f1cb7e88a4dc34.png" />
+<img alt="_images/9e47ad52eb629ffb9030438d455a0d271571d8ea84b69a8dfaf10688438ca2e3.png" src="_images/9e47ad52eb629ffb9030438d455a0d271571d8ea84b69a8dfaf10688438ca2e3.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1974,8 +1976,8 @@ Here, we will run an ordered logit as an example.</p>
 Dep. Variable:                  apply   Log-Likelihood:                -366.30
 Model:                   OrderedModel   AIC:                             738.6
 Method:            Maximum Likelihood   BIC:                             750.6
-Date:                Tue, 16 Jan 2024                                         
-Time:                        17:07:53                                         
+Date:                Wed, 17 Jan 2024                                         
+Time:                        12:16:02                                         
 No. Observations:                 400                                         
 Df Residuals:                     397                                         
 Df Model:                           1                                         
@@ -2159,7 +2161,7 @@ somewhat likely/very likely     0.7056      0.080      8.836      0.000       0.
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;gpa&#39;, ylabel=&#39;Likelihood&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/ed3eb7555b2a18f831f0f87667232b5404ca792f4b4cfb466d421508f4380767.png" src="_images/ed3eb7555b2a18f831f0f87667232b5404ca792f4b4cfb466d421508f4380767.png" />
+<img alt="_images/c90cea3353b5628b41365c2a95a7ddb5cc93338e0fd9fa7273f9ebf00125cf3f.png" src="_images/c90cea3353b5628b41365c2a95a7ddb5cc93338e0fd9fa7273f9ebf00125cf3f.png" />
 </div>
 </div>
 </section>
