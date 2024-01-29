@@ -179,30 +179,17 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="001_Introduction.html">Why learn statistics?</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="Course%20Logistics.html">Course Logistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="001_Introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="002_Intro_to_Python.html">Intro to Python</a></li>
-
-
-
-
-
-
-
-
 <li class="toctree-l1"><a class="reference internal" href="003_Data_Visualization.html">Data visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="004_Probability_.html">Probability</a></li>
-
-
-
-
 <li class="toctree-l1"><a class="reference internal" href="01_Regression_Week2_DataManipulation%26Correlations.html">Data Manipulation and Correlations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_Regression_Week3_TTests.html">T-Test</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_Regression_Week4_ChiSquare.html">Chi Square Test</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_Regression_Week6_Regression.html">Regression</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Mediation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="07_Regression_Week8_NonlinearRegression.html">Logistic, Poisson, Multinomial, and Ordinal Regression</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
 </ul>
 
     </div>
@@ -934,10 +921,10 @@ Set the environment variable OUTDATED_IGNORE=1 to disable these warnings.
       <th>4</th>
       <td>Indirect</td>
       <td>0.559</td>
-      <td>0.194</td>
+      <td>0.214</td>
       <td>0.000</td>
-      <td>0.238</td>
-      <td>0.987</td>
+      <td>0.246</td>
+      <td>1.103</td>
       <td>Yes</td>
     </tr>
   </tbody>
@@ -1025,10 +1012,10 @@ Set the environment variable OUTDATED_IGNORE=1 to disable these warnings.
       <th>4</th>
       <td>Indirect</td>
       <td>0.559</td>
-      <td>0.201</td>
+      <td>0.197</td>
       <td>0.000</td>
-      <td>0.244</td>
-      <td>1.045</td>
+      <td>0.253</td>
+      <td>1.048</td>
       <td>Yes</td>
     </tr>
   </tbody>
@@ -1053,105 +1040,6 @@ Set the environment variable OUTDATED_IGNORE=1 to disable these warnings.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Estimate</th>
-      <th>Lower CI bound</th>
-      <th>Upper CI bound</th>
-      <th>P-value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>ACME (control)</th>
-      <td>0.562219</td>
-      <td>0.220819</td>
-      <td>0.978070</td>
-      <td>0.000</td>
-    </tr>
-    <tr>
-      <th>ACME (treated)</th>
-      <td>0.562219</td>
-      <td>0.220819</td>
-      <td>0.978070</td>
-      <td>0.000</td>
-    </tr>
-    <tr>
-      <th>ADE (control)</th>
-      <td>0.638541</td>
-      <td>-0.383803</td>
-      <td>1.678962</td>
-      <td>0.234</td>
-    </tr>
-    <tr>
-      <th>ADE (treated)</th>
-      <td>0.638541</td>
-      <td>-0.383803</td>
-      <td>1.678962</td>
-      <td>0.234</td>
-    </tr>
-    <tr>
-      <th>Total effect</th>
-      <td>1.200760</td>
-      <td>0.081318</td>
-      <td>2.218314</td>
-      <td>0.032</td>
-    </tr>
-    <tr>
-      <th>Prop. mediated (control)</th>
-      <td>0.464905</td>
-      <td>0.123465</td>
-      <td>1.877660</td>
-      <td>0.032</td>
-    </tr>
-    <tr>
-      <th>Prop. mediated (treated)</th>
-      <td>0.464905</td>
-      <td>0.123465</td>
-      <td>1.877660</td>
-      <td>0.032</td>
-    </tr>
-    <tr>
-      <th>ACME (average)</th>
-      <td>0.562219</td>
-      <td>0.220819</td>
-      <td>0.978070</td>
-      <td>0.000</td>
-    </tr>
-    <tr>
-      <th>ADE (average)</th>
-      <td>0.638541</td>
-      <td>-0.383803</td>
-      <td>1.678962</td>
-      <td>0.234</td>
-    </tr>
-    <tr>
-      <th>Prop. mediated (average)</th>
-      <td>0.464905</td>
-      <td>0.123465</td>
-      <td>1.877660</td>
-      <td>0.032</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>Proportion mediated is the indirect effect (ACME) over the total effect. This provides an estimate of the extent to which the total effect is accounted for by the pathway through the mediating variable.</p>
 <p>Reporting the mediation model in a paper:</p>
@@ -1182,10 +1070,10 @@ Set the environment variable OUTDATED_IGNORE=1 to disable these warnings.
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   19.84</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Thu, 25 Jan 2024</td> <th>  Prob (F-statistic):</th> <td>1.09e-05</td>
+  <th>Date:</th>             <td>Tue, 16 Jan 2024</td> <th>  Prob (F-statistic):</th> <td>1.09e-05</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>10:21:31</td>     <th>  Log-Likelihood:    </th> <td> -1675.3</td>
+  <th>Time:</th>                 <td>15:04:58</td>     <th>  Log-Likelihood:    </th> <td> -1675.3</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>   400</td>      <th>  AIC:               </th> <td>   3355.</td>
@@ -1278,10 +1166,10 @@ partnum Var   183.343    0.948
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   13.38</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Thu, 25 Jan 2024</td> <th>  Prob (F-statistic):</th> <td>2.38e-06</td>
+  <th>Date:</th>             <td>Tue, 16 Jan 2024</td> <th>  Prob (F-statistic):</th> <td>2.38e-06</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>10:21:32</td>     <th>  Log-Likelihood:    </th> <td> -1240.4</td>
+  <th>Time:</th>                 <td>15:04:58</td>     <th>  Log-Likelihood:    </th> <td> -1240.4</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>   400</td>      <th>  AIC:               </th> <td>   2487.</td>
@@ -1347,10 +1235,10 @@ partnum Var   183.343    0.948
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   4.969</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Thu, 25 Jan 2024</td> <th>  Prob (F-statistic):</th>  <td>0.0264</td> 
+  <th>Date:</th>             <td>Tue, 16 Jan 2024</td> <th>  Prob (F-statistic):</th>  <td>0.0264</td> 
 </tr>
 <tr>
-  <th>Time:</th>                 <td>10:21:32</td>     <th>  Log-Likelihood:    </th> <td> -1251.0</td>
+  <th>Time:</th>                 <td>15:04:58</td>     <th>  Log-Likelihood:    </th> <td> -1251.0</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>   400</td>      <th>  AIC:               </th> <td>   2506.</td>
@@ -1412,10 +1300,10 @@ partnum Var   183.343    0.948
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   33.40</td> 
 </tr>
 <tr>
-  <th>Date:</th>             <td>Thu, 25 Jan 2024</td> <th>  Prob (F-statistic):</th> <td>3.71e-15</td> 
+  <th>Date:</th>             <td>Tue, 16 Jan 2024</td> <th>  Prob (F-statistic):</th> <td>3.71e-15</td> 
 </tr>
 <tr>
-  <th>Time:</th>                 <td>10:21:32</td>     <th>  Log-Likelihood:    </th> <td> -27406.</td> 
+  <th>Time:</th>                 <td>15:04:58</td>     <th>  Log-Likelihood:    </th> <td> -27406.</td> 
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>  6400</td>      <th>  AIC:               </th> <td>5.482e+04</td>
@@ -1563,10 +1451,10 @@ partnum Var   183.343    0.948
       <th>6</th>
       <td>Indirect convincing</td>
       <td>0.461</td>
-      <td>0.080</td>
+      <td>0.081</td>
       <td>0.000</td>
-      <td>0.319</td>
-      <td>0.636</td>
+      <td>0.322</td>
+      <td>0.640</td>
       <td>Yes</td>
     </tr>
     <tr>
@@ -1574,9 +1462,9 @@ partnum Var   183.343    0.948
       <td>Indirect trust</td>
       <td>0.006</td>
       <td>0.011</td>
-      <td>0.544</td>
+      <td>0.496</td>
       <td>-0.004</td>
-      <td>0.053</td>
+      <td>0.039</td>
       <td>No</td>
     </tr>
   </tbody>
@@ -1687,20 +1575,20 @@ partnum Var   183.343    0.948
       <th>6</th>
       <td>Indirect convincing</td>
       <td>0.470</td>
-      <td>0.077</td>
+      <td>0.085</td>
       <td>0.000</td>
-      <td>0.336</td>
-      <td>0.641</td>
+      <td>0.309</td>
+      <td>0.626</td>
       <td>Yes</td>
     </tr>
     <tr>
       <th>7</th>
       <td>Indirect trust</td>
       <td>0.006</td>
-      <td>0.009</td>
-      <td>0.508</td>
+      <td>0.011</td>
+      <td>0.472</td>
       <td>-0.005</td>
-      <td>0.035</td>
+      <td>0.039</td>
       <td>No</td>
     </tr>
   </tbody>
@@ -1726,6 +1614,105 @@ partnum Var   183.343    0.948
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Estimate</th>
+      <th>Lower CI bound</th>
+      <th>Upper CI bound</th>
+      <th>P-value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>ACME (control)</th>
+      <td>-0.002407</td>
+      <td>-0.005407</td>
+      <td>0.000411</td>
+      <td>0.092</td>
+    </tr>
+    <tr>
+      <th>ACME (treated)</th>
+      <td>-0.002411</td>
+      <td>-0.005456</td>
+      <td>0.000399</td>
+      <td>0.092</td>
+    </tr>
+    <tr>
+      <th>ADE (control)</th>
+      <td>-0.000284</td>
+      <td>-0.022546</td>
+      <td>0.020853</td>
+      <td>0.974</td>
+    </tr>
+    <tr>
+      <th>ADE (treated)</th>
+      <td>-0.000288</td>
+      <td>-0.022431</td>
+      <td>0.020754</td>
+      <td>0.974</td>
+    </tr>
+    <tr>
+      <th>Total effect</th>
+      <td>-0.002695</td>
+      <td>-0.024598</td>
+      <td>0.017626</td>
+      <td>0.786</td>
+    </tr>
+    <tr>
+      <th>Prop. mediated (control)</th>
+      <td>0.105420</td>
+      <td>-4.049083</td>
+      <td>3.464410</td>
+      <td>0.790</td>
+    </tr>
+    <tr>
+      <th>Prop. mediated (treated)</th>
+      <td>0.102254</td>
+      <td>-4.077205</td>
+      <td>3.463268</td>
+      <td>0.790</td>
+    </tr>
+    <tr>
+      <th>ACME (average)</th>
+      <td>-0.002409</td>
+      <td>-0.005437</td>
+      <td>0.000405</td>
+      <td>0.092</td>
+    </tr>
+    <tr>
+      <th>ADE (average)</th>
+      <td>-0.000286</td>
+      <td>-0.022492</td>
+      <td>0.020789</td>
+      <td>0.974</td>
+    </tr>
+    <tr>
+      <th>Prop. mediated (average)</th>
+      <td>0.103837</td>
+      <td>-4.063144</td>
+      <td>3.459335</td>
+      <td>0.790</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </section>
 <section id="example-of-moderated-mediation">
