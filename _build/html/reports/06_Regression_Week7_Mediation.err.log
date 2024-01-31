@@ -37,8 +37,13 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-['# equivalent mediation analysis using Statsmodels instead of Pingouin', '', '# first, write y ~ x + m', 'outcome_model = sm.GLM.from_formula("RdeltaB ~ cond + convincing", AVDATA)', '']
-...
-['# then fit the mediation of the first two models', 'med = Mediation(outcome_model, mediator_model, "cond", mediator="convincing").fit()', '', '# print the summary, note how similar the outputs are in the two appraoches', 'med.summary()']
+# moderated mediation: Is the effect of condition on belief updating mediated by evidence convincingness for Democrats ("party"==1) but not for Republicans ("party"==2)?
+# let's first run the mediation model only for Democrats ("party"==1)
+
+outcome_model = sm.GLM.from_formula("RdeltaB ~ cond*party + convincing*party", df, family=sm.families.Binomial())
+mediator_model = sm.OLS.from_formula("convincing ~ cond*party", df)
+moderators = {"party" : 1}
+med = Mediation(outcome_model, mediator_model, "cond", "convincing", moderators=moderators).fit()
+med.summary()
 -------------------
 

@@ -9,7 +9,8 @@ chapters:
 - file: 002_Intro_to_Python
 - file: 003_Data_Visualization
 - file: 004_Probability_.ipynb
-- file: 01_Regression_Week2_DataManipulation&Correlations
+- file: 2_Data_Manipulation
+- file: 5_Correlation
 - file: 005_Hypothesis_testing
 - file: 02_Regression_Week3_TTests
 - file: 03_Regression_Week4_ChiSquare
