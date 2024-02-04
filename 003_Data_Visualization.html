@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Probability" href="004_Probability_.html" />
-    <link rel="prev" title="Intro to Python" href="002_Intro_to_Python.html" />
+    <link rel="prev" title="Data Manipulation" href="2_Data_Manipulation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -179,11 +179,15 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Course%20Logistics.html">Course Logistics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="001_Introduction.html">Why learn statistics?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="002_Intro_to_Python.html">Intro to Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Data_Manipulation.html">Data Manipulation</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Data visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="004_Probability_.html">Probability</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_Data_Manipulation.html">Data Manipulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="5_Correlation.html">Correlation</a></li>
+
+
+
+
+
 <li class="toctree-l1"><a class="reference internal" href="005_Hypothesis_testing.html">Hypothesis testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_Regression_Week3_TTests.html">T-Test</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_Regression_Week4_ChiSquare.html">Chi Square Test</a></li>
@@ -445,77 +449,328 @@ either in a publication, or a presentation</p></li>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import data downloaded from https://github.com/mvlasceanu/RegressionData/blob/da060297aea7dccb040a16be2a744b3310a3f948/data.csv</span>
+<span class="c1"># df = pd.read_excel(&#39;data.xlsx&#39;)</span>
+
+<span class="c1"># Or you can read the Excel file directly from the URL</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://github.com/mvlasceanu/RegressionData/raw/da060297aea7dccb040a16be2a744b3310a3f948/data.csv&#39;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
 <span class="n">df</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data.csv&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">df</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="nn">File C:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\pandas\io\parsers\readers.py:948,</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)</span>
-<span class="g g-Whitespace">    </span><span class="mi">935</span> <span class="n">kwds_defaults</span> <span class="o">=</span> <span class="n">_refine_defaults_read</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">936</span>     <span class="n">dialect</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">937</span>     <span class="n">delimiter</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">944</span>     <span class="n">dtype_backend</span><span class="o">=</span><span class="n">dtype_backend</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">945</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">946</span> <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">948</span> <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<span class="nn">File C:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\pandas\io\parsers\readers.py:611,</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">608</span> <span class="n">_validate_names</span><span class="p">(</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;names&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">610</span> <span class="c1"># Create the parser.</span>
-<span class="ne">--&gt; </span><span class="mi">611</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">613</span> <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">614</span>     <span class="k">return</span> <span class="n">parser</span>
-
-<span class="nn">File C:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\pandas\io\parsers\readers.py:1448,</span> in <span class="ni">TextFileReader.__init__</span><span class="nt">(self, f, engine, **kwds)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1445</span>     <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1447</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="p">:</span> <span class="n">IOHandles</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="ne">-&gt; </span><span class="mi">1448</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
-
-<span class="nn">File C:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\pandas\io\parsers\readers.py:1705,</span> in <span class="ni">TextFileReader._make_engine</span><span class="nt">(self, f, engine)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1703</span>     <span class="k">if</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mode</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1704</span>         <span class="n">mode</span> <span class="o">+=</span> <span class="s2">&quot;b&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1705</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1706</span>     <span class="n">f</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1707</span>     <span class="n">mode</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1708</span>     <span class="n">encoding</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1709</span>     <span class="n">compression</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;compression&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1710</span>     <span class="n">memory_map</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1711</span>     <span class="n">is_text</span><span class="o">=</span><span class="n">is_text</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1712</span>     <span class="n">errors</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding_errors&quot;</span><span class="p">,</span> <span class="s2">&quot;strict&quot;</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1713</span>     <span class="n">storage_options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1714</span> <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1715</span> <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-<span class="g g-Whitespace">   </span><span class="mi">1716</span> <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="o">.</span><span class="n">handle</span>
-
-<span class="nn">File C:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\pandas\io\common.py:863,</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">858</span> <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">859</span>     <span class="c1"># Check whether the filename is to be opened in binary mode.</span>
-<span class="g g-Whitespace">    </span><span class="mi">860</span>     <span class="c1"># Binary mode does not support &#39;encoding&#39; and &#39;newline&#39;.</span>
-<span class="g g-Whitespace">    </span><span class="mi">861</span>     <span class="k">if</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span> <span class="ow">and</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">862</span>         <span class="c1"># Encoding</span>
-<span class="ne">--&gt; </span><span class="mi">863</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">864</span>             <span class="n">handle</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">865</span>             <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">866</span>             <span class="n">encoding</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">867</span>             <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">868</span>             <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">869</span>         <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">870</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">871</span>         <span class="c1"># Binary mode</span>
-<span class="g g-Whitespace">    </span><span class="mi">872</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;data.csv&#39;
-</pre></div>
-</div>
-</div>
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ResponseId</th>
+      <th>condName</th>
+      <th>BELIEFcc</th>
+      <th>POLICYcc</th>
+      <th>SHAREcc</th>
+      <th>WEPTcc</th>
+      <th>Intervention_order</th>
+      <th>Belief1</th>
+      <th>Belief2</th>
+      <th>Belief3</th>
+      <th>...</th>
+      <th>Age</th>
+      <th>Politics2_1</th>
+      <th>Politics2_9</th>
+      <th>Edu</th>
+      <th>Income</th>
+      <th>Indirect_SES</th>
+      <th>MacArthur_SES</th>
+      <th>PerceivedSciConsensu_1</th>
+      <th>Intro_Timer</th>
+      <th>condition_time_total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>R_1d6rdZRmlD02sFi</td>
+      <td>FutureSelfCont</td>
+      <td>100.00</td>
+      <td>100.000000</td>
+      <td>0.0</td>
+      <td>8</td>
+      <td>PolicySocialM</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>...</td>
+      <td>40</td>
+      <td>100.0</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2,3,4,6,7</td>
+      <td>7</td>
+      <td>81</td>
+      <td>25.566</td>
+      <td>1043.866</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>R_1CjFxfgjU1coLqp</td>
+      <td>Control</td>
+      <td>100.00</td>
+      <td>100.000000</td>
+      <td>0.0</td>
+      <td>1</td>
+      <td>PolicySocialM</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>...</td>
+      <td>50</td>
+      <td>3.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>1,3,4,5,6,7</td>
+      <td>9</td>
+      <td>96</td>
+      <td>16.697</td>
+      <td>367.657</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>R_qxty9a2HTTEq7Xb</td>
+      <td>Control</td>
+      <td>30.25</td>
+      <td>66.444444</td>
+      <td>0.0</td>
+      <td>8</td>
+      <td>PolicySocialM</td>
+      <td>3</td>
+      <td>78</td>
+      <td>3</td>
+      <td>...</td>
+      <td>36</td>
+      <td>48.0</td>
+      <td>49.0</td>
+      <td>3.0</td>
+      <td>5.0</td>
+      <td>2,3,4,5,6,7</td>
+      <td>6</td>
+      <td>76</td>
+      <td>24.055</td>
+      <td>79.902</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>R_1ONRMXgQ310zjNm</td>
+      <td>BindingMoral</td>
+      <td>4.50</td>
+      <td>16.000000</td>
+      <td>0.0</td>
+      <td>8</td>
+      <td>PolicySocialM</td>
+      <td>6</td>
+      <td>5</td>
+      <td>3</td>
+      <td>...</td>
+      <td>50</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>2.0</td>
+      <td>6.0</td>
+      <td>2,3,4,5,6,7</td>
+      <td>6</td>
+      <td>22</td>
+      <td>11.647</td>
+      <td>2.701</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>R_2VQr7rPu2yI8TnK</td>
+      <td>CollectAction</td>
+      <td>71.75</td>
+      <td>67.000000</td>
+      <td>1.0</td>
+      <td>2</td>
+      <td>PolicySocialM</td>
+      <td>86</td>
+      <td>65</td>
+      <td>66</td>
+      <td>...</td>
+      <td>34</td>
+      <td>81.0</td>
+      <td>73.0</td>
+      <td>4.0</td>
+      <td>6.0</td>
+      <td>1,2,3,4,5,6,7</td>
+      <td>10</td>
+      <td>76</td>
+      <td>26.658</td>
+      <td>398.695</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>216</th>
+      <td>R_SCbUzWDoIpIodH3</td>
+      <td>Control</td>
+      <td>22.00</td>
+      <td>28.333333</td>
+      <td>NaN</td>
+      <td>8</td>
+      <td>PolicySocialM</td>
+      <td>17</td>
+      <td>31</td>
+      <td>16</td>
+      <td>...</td>
+      <td>66</td>
+      <td>72.0</td>
+      <td>72.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>1,2,3,4,5,6,7</td>
+      <td>7</td>
+      <td>70</td>
+      <td>11.223</td>
+      <td>195.065</td>
+    </tr>
+    <tr>
+      <th>217</th>
+      <td>R_27TYhr5VpeS4ejh</td>
+      <td>Control</td>
+      <td>92.75</td>
+      <td>68.000000</td>
+      <td>0.0</td>
+      <td>8</td>
+      <td>PolicySocialM</td>
+      <td>94</td>
+      <td>87</td>
+      <td>100</td>
+      <td>...</td>
+      <td>56</td>
+      <td>65.0</td>
+      <td>65.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>1,2,3,4,5,6,7</td>
+      <td>6</td>
+      <td>85</td>
+      <td>21.956</td>
+      <td>398.400</td>
+    </tr>
+    <tr>
+      <th>218</th>
+      <td>R_ZC41XczQH7OQwUh</td>
+      <td>SystemJust</td>
+      <td>98.50</td>
+      <td>81.333333</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>PolicySocialM</td>
+      <td>100</td>
+      <td>99</td>
+      <td>97</td>
+      <td>...</td>
+      <td>43</td>
+      <td>50.0</td>
+      <td>52.0</td>
+      <td>3.0</td>
+      <td>8.0</td>
+      <td>1,2,3,4,5,6,7</td>
+      <td>9</td>
+      <td>80</td>
+      <td>15.358</td>
+      <td>124.334</td>
+    </tr>
+    <tr>
+      <th>219</th>
+      <td>R_3fPjJLW85l37Mqb</td>
+      <td>PluralIgnorance</td>
+      <td>100.00</td>
+      <td>80.000000</td>
+      <td>0.0</td>
+      <td>8</td>
+      <td>PolicySocialM</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>...</td>
+      <td>71</td>
+      <td>40.0</td>
+      <td>53.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>1,2,3,4,5,6,7</td>
+      <td>6</td>
+      <td>100</td>
+      <td>15.303</td>
+      <td>47.831</td>
+    </tr>
+    <tr>
+      <th>220</th>
+      <td>R_23UgeVaaC1npjt2</td>
+      <td>BindingMoral</td>
+      <td>94.25</td>
+      <td>66.714286</td>
+      <td>NaN</td>
+      <td>8</td>
+      <td>PolicySocialM</td>
+      <td>77</td>
+      <td>100</td>
+      <td>100</td>
+      <td>...</td>
+      <td>71</td>
+      <td>51.0</td>
+      <td>53.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>1,2,3,5,6,7</td>
+      <td>5</td>
+      <td>20</td>
+      <td>7.066</td>
+      <td>11.945</td>
+    </tr>
+  </tbody>
+</table>
+<p>221 rows × 51 columns</p>
+</div></div></div>
 </div>
 <section id="histogram">
 <h2>Histogram<a class="headerlink" href="#histogram" title="Permalink to this heading">#</a></h2>
@@ -529,7 +784,7 @@ either in a publication, or a presentation</p></li>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
 </pre></div>
 </div>
-<img alt="_images/eacb533d56552981c9c2f98e5cde6a728db9d21a199f4378b2710aa3cc3be363.png" src="_images/eacb533d56552981c9c2f98e5cde6a728db9d21a199f4378b2710aa3cc3be363.png" />
+<img alt="_images/24f94a2ccd4d2226e0333c6b99ef520db47a11e84506f155460ae0196ae8fe04.png" src="_images/24f94a2ccd4d2226e0333c6b99ef520db47a11e84506f155460ae0196ae8fe04.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -544,7 +799,7 @@ either in a publication, or a presentation</p></li>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Frequency&#39;)
 </pre></div>
 </div>
-<img alt="_images/d51de066b1e60e1be9f52e4f75cd91ba99d42e0777227928d6af3ac3e02a8565.png" src="_images/d51de066b1e60e1be9f52e4f75cd91ba99d42e0777227928d6af3ac3e02a8565.png" />
+<img alt="_images/3e1af99ed3d2f7b00acd14879e6a5aab8bb5c7da52a8ab27f0441ae7c336a118.png" src="_images/3e1af99ed3d2f7b00acd14879e6a5aab8bb5c7da52a8ab27f0441ae7c336a118.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -554,10 +809,14 @@ either in a publication, or a presentation</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x789cf0c68190&gt;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\seaborn\_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
+  with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
 </pre></div>
 </div>
-<img alt="_images/e7ebe9e7f7f918b00b6445f2c5196a981f3fb056f5d1b60cede2cfdce36fe9e3.png" src="_images/e7ebe9e7f7f918b00b6445f2c5196a981f3fb056f5d1b60cede2cfdce36fe9e3.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x1cdf0cb7c90&gt;
+</pre></div>
+</div>
+<img alt="_images/825ba41a4061d1ea11044166d9a2487413e2fdf0f997db25336a5df8913f73a7.png" src="_images/825ba41a4061d1ea11044166d9a2487413e2fdf0f997db25336a5df8913f73a7.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -567,10 +826,14 @@ either in a publication, or a presentation</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x789cf8349ba0&gt;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\seaborn\_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
+  with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
 </pre></div>
 </div>
-<img alt="_images/ae153f93081c5a3298a170fe53e96e9f3ecc7e43d64e85cdfbf3304c6b9a6e43.png" src="_images/ae153f93081c5a3298a170fe53e96e9f3ecc7e43d64e85cdfbf3304c6b9a6e43.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x1cdf10d3190&gt;
+</pre></div>
+</div>
+<img alt="_images/06b9eecad12a098a57de999eb3b4f4504be95b5bc2cf95cc9ff1d887c0c481e7.png" src="_images/06b9eecad12a098a57de999eb3b4f4504be95b5bc2cf95cc9ff1d887c0c481e7.png" />
 </div>
 </div>
 </section>
@@ -583,10 +846,10 @@ either in a publication, or a presentation</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x789cf4caa950&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x1cdf110cb10&gt;
 </pre></div>
 </div>
-<img alt="_images/def071bd5c4052f4e36d99fe4bc77ee1117919b40f7be1195d76416586df2b2a.png" src="_images/def071bd5c4052f4e36d99fe4bc77ee1117919b40f7be1195d76416586df2b2a.png" />
+<img alt="_images/6012f01501514accb35c230dbaa319f50ab1e24dce5179b74c24bb6fa8d313b0.png" src="_images/6012f01501514accb35c230dbaa319f50ab1e24dce5179b74c24bb6fa8d313b0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -596,10 +859,10 @@ either in a publication, or a presentation</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x789cf3335960&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x1cdf199e610&gt;
 </pre></div>
 </div>
-<img alt="_images/65751afca31fc50d60532fc98e1fd5bc473d28ce8cff0a76f6c020d947231e3e.png" src="_images/65751afca31fc50d60532fc98e1fd5bc473d28ce8cff0a76f6c020d947231e3e.png" />
+<img alt="_images/98594caaa64ce501e4429ddc6049bcbeb0694a4fbc40613956736740b75f98d9.png" src="_images/98594caaa64ce501e4429ddc6049bcbeb0694a4fbc40613956736740b75f98d9.png" />
 </div>
 </div>
 </section>
@@ -612,10 +875,10 @@ either in a publication, or a presentation</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x789cf4caa080&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x1cdf5961310&gt;
 </pre></div>
 </div>
-<img alt="_images/d3d56de2d328d5cdaa67f5f9b3bf67068ee7d2707cb57cf8fab0d1201da2d4dd.png" src="_images/d3d56de2d328d5cdaa67f5f9b3bf67068ee7d2707cb57cf8fab0d1201da2d4dd.png" />
+<img alt="_images/9343d4c0e157b0c0e8169b106f4d757d10f5803e96d5890a36ed3a919aa60001.png" src="_images/9343d4c0e157b0c0e8169b106f4d757d10f5803e96d5890a36ed3a919aa60001.png" />
 </div>
 </div>
 </section>
@@ -628,10 +891,10 @@ either in a publication, or a presentation</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x789cf4ca8d30&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x1cdf5aca1d0&gt;
 </pre></div>
 </div>
-<img alt="_images/4cbc162857372cd86ba1d86b8bc2adfdb911b978839406c8448204387e173a31.png" src="_images/4cbc162857372cd86ba1d86b8bc2adfdb911b978839406c8448204387e173a31.png" />
+<img alt="_images/ab0354d0ce30a2135ced104de03c764d36d3c9289c65c648511d3553d2a0fbd2.png" src="_images/ab0354d0ce30a2135ced104de03c764d36d3c9289c65c648511d3553d2a0fbd2.png" />
 </div>
 </div>
 </section>
@@ -644,10 +907,86 @@ either in a publication, or a presentation</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x789cf3335120&gt;
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Gender&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;BELIEFcc&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;Edu&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+
+<span class="nn">File C:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\seaborn\categorical.py:3244,</span> in <span class="ni">catplot</span><span class="nt">(data, x, y, hue, row, col, col_wrap, estimator, errorbar, n_boot, units, seed, order, hue_order, row_order, col_order, height, aspect, kind, native_scale, formatter, orient, color, palette, hue_norm, legend, legend_out, sharex, sharey, margin_titles, facet_kws, ci, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3241</span> <span class="n">g</span> <span class="o">=</span> <span class="n">FacetGrid</span><span class="p">(</span><span class="o">**</span><span class="n">facet_kws</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3243</span> <span class="c1"># Draw the plot onto the facets</span>
+<span class="ne">-&gt; </span><span class="mi">3244</span> <span class="n">g</span><span class="o">.</span><span class="n">map_dataframe</span><span class="p">(</span><span class="n">plot_func</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="n">hue</span><span class="p">,</span> <span class="o">**</span><span class="n">plot_kws</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3246</span> <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">orient</span> <span class="o">==</span> <span class="s2">&quot;h&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3247</span>     <span class="n">g</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">value_label</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">group_label</span><span class="p">)</span>
+
+<span class="nn">File C:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\seaborn\axisgrid.py:819,</span> in <span class="ni">FacetGrid.map_dataframe</span><span class="nt">(self, func, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">816</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_ijk</span>
+<span class="g g-Whitespace">    </span><span class="mi">818</span>     <span class="c1"># Draw the plot</span>
+<span class="ne">--&gt; </span><span class="mi">819</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_facet_plot</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">821</span> <span class="c1"># For axis labels, prefer to use positional args for backcompat</span>
+<span class="g g-Whitespace">    </span><span class="mi">822</span> <span class="c1"># but also extract the x/y kwargs and use if no corresponding arg</span>
+<span class="g g-Whitespace">    </span><span class="mi">823</span> <span class="n">axis_labels</span> <span class="o">=</span> <span class="p">[</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)]</span>
+
+<span class="nn">File C:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\seaborn\axisgrid.py:848,</span> in <span class="ni">FacetGrid._facet_plot</span><span class="nt">(self, func, ax, plot_args, plot_kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">846</span>     <span class="n">plot_args</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="g g-Whitespace">    </span><span class="mi">847</span>     <span class="n">plot_kwargs</span><span class="p">[</span><span class="s2">&quot;ax&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ax</span>
+<span class="ne">--&gt; </span><span class="mi">848</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">plot_args</span><span class="p">,</span> <span class="o">**</span><span class="n">plot_kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">850</span> <span class="c1"># Sort out the supporting information</span>
+<span class="g g-Whitespace">    </span><span class="mi">851</span> <span class="bp">self</span><span class="o">.</span><span class="n">_update_legend_data</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+
+<span class="nn">File C:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\seaborn\categorical.py:2763,</span> in <span class="ni">barplot</span><span class="nt">(data, x, y, hue, order, hue_order, estimator, errorbar, n_boot, units, seed, orient, color, palette, saturation, width, errcolor, errwidth, capsize, dodge, ci, ax, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2760</span> <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2761</span>     <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+<span class="ne">-&gt; </span><span class="mi">2763</span> <span class="n">plotter</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2764</span> <span class="k">return</span> <span class="n">ax</span>
+
+<span class="nn">File C:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\seaborn\categorical.py:1587,</span> in <span class="ni">_BarPlotter.plot</span><span class="nt">(self, ax, bar_kws)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1585</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Make the plot.&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1586</span> <span class="bp">self</span><span class="o">.</span><span class="n">draw_bars</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">bar_kws</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1587</span> <span class="bp">self</span><span class="o">.</span><span class="n">annotate_axes</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1588</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">orient</span> <span class="o">==</span> <span class="s2">&quot;h&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1589</span>     <span class="n">ax</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
+
+<span class="nn">File C:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\seaborn\categorical.py:767,</span> in <span class="ni">_CategoricalPlotter.annotate_axes</span><span class="nt">(self, ax)</span>
+<span class="g g-Whitespace">    </span><span class="mi">764</span>     <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">.5</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">plot_data</span><span class="p">)</span> <span class="o">-</span> <span class="mf">.5</span><span class="p">,</span> <span class="n">auto</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">766</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">hue_names</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">767</span>     <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">hue_title</span><span class="p">)</span>
+
+<span class="nn">File C:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\matplotlib\axes\_axes.py:322,</span> in <span class="ni">Axes.legend</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">204</span> <span class="nd">@_docstring</span><span class="o">.</span><span class="n">dedent_interpd</span>
+<span class="g g-Whitespace">    </span><span class="mi">205</span> <span class="k">def</span> <span class="nf">legend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">206</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">207</span><span class="sd">     Place a legend on the Axes.</span>
+<span class="g g-Whitespace">    </span><span class="mi">208</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">320</span><span class="sd">     .. plot:: gallery/text_labels_and_annotations/legend.py</span>
+<span class="g g-Whitespace">    </span><span class="mi">321</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">322</span>     <span class="n">handles</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">kwargs</span> <span class="o">=</span> <span class="n">mlegend</span><span class="o">.</span><span class="n">_parse_legend_args</span><span class="p">([</span><span class="bp">self</span><span class="p">],</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">323</span>     <span class="bp">self</span><span class="o">.</span><span class="n">legend_</span> <span class="o">=</span> <span class="n">mlegend</span><span class="o">.</span><span class="n">Legend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handles</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">324</span>     <span class="bp">self</span><span class="o">.</span><span class="n">legend_</span><span class="o">.</span><span class="n">_remove_method</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_remove_legend</span>
+
+<span class="nn">File C:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\matplotlib\legend.py:1361,</span> in <span class="ni">_parse_legend_args</span><span class="nt">(axs, handles, labels, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1357</span>     <span class="n">handles</span> <span class="o">=</span> <span class="p">[</span><span class="n">handle</span> <span class="k">for</span> <span class="n">handle</span><span class="p">,</span> <span class="n">label</span>
+<span class="g g-Whitespace">   </span><span class="mi">1358</span>                <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">_get_legend_handles</span><span class="p">(</span><span class="n">axs</span><span class="p">,</span> <span class="n">handlers</span><span class="p">),</span> <span class="n">labels</span><span class="p">)]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1360</span> <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># 0 args: automatically detect labels and handles.</span>
+<span class="ne">-&gt; </span><span class="mi">1361</span>     <span class="n">handles</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">_get_legend_handles_labels</span><span class="p">(</span><span class="n">axs</span><span class="p">,</span> <span class="n">handlers</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1362</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">handles</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1363</span>         <span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1364</span>             <span class="s2">&quot;No artists with labels found to put in legend.  Note that &quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1365</span>             <span class="s2">&quot;artists whose label start with an underscore are ignored &quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1366</span>             <span class="s2">&quot;when legend() is called with no argument.&quot;</span><span class="p">)</span>
+
+<span class="nn">File C:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\matplotlib\legend.py:1291,</span> in <span class="ni">_get_legend_handles_labels</span><span class="nt">(axs, legend_handler_map)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1289</span> <span class="k">for</span> <span class="n">handle</span> <span class="ow">in</span> <span class="n">_get_legend_handles</span><span class="p">(</span><span class="n">axs</span><span class="p">,</span> <span class="n">legend_handler_map</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1290</span>     <span class="n">label</span> <span class="o">=</span> <span class="n">handle</span><span class="o">.</span><span class="n">get_label</span><span class="p">()</span>
+<span class="ne">-&gt; </span><span class="mi">1291</span>     <span class="k">if</span> <span class="n">label</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">label</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1292</span>         <span class="n">handles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">handle</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1293</span>         <span class="n">labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+
+<span class="ne">AttributeError</span>: &#39;numpy.float64&#39; object has no attribute &#39;startswith&#39;
 </pre></div>
 </div>
-<img alt="_images/4909878fb5cca253740ed055abc347e5f92178c446e0daf28e932b41e115f980.png" src="_images/4909878fb5cca253740ed055abc347e5f92178c446e0daf28e932b41e115f980.png" />
+<img alt="_images/0dc20be9bbbdd741cca1b1bd418f97b366e36534cb2e44a226805a9cee92a368.png" src="_images/0dc20be9bbbdd741cca1b1bd418f97b366e36534cb2e44a226805a9cee92a368.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -672,11 +1011,68 @@ either in a publication, or a presentation</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-40-f08f400e81b1&gt;:11: UserWarning: FixedFormatter should only be used together with FixedLocator
-  ax.set_xticklabels([&#39;Man&#39;, &#39;Woman&#39;, &#39;Other&#39;])
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;#FE5F55&#39;</span><span class="p">,</span> <span class="s1">&#39;#388697&#39;</span><span class="p">,</span> <span class="s1">&#39;#71697A&#39;</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mf">4.5</span><span class="p">))</span>
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Gender&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;POLICYcc&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;Edu&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Support for policy&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Gender&#39;</span><span class="p">)</span>
+
+<span class="nn">File C:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\seaborn\categorical.py:2763,</span> in <span class="ni">barplot</span><span class="nt">(data, x, y, hue, order, hue_order, estimator, errorbar, n_boot, units, seed, orient, color, palette, saturation, width, errcolor, errwidth, capsize, dodge, ci, ax, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2760</span> <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2761</span>     <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+<span class="ne">-&gt; </span><span class="mi">2763</span> <span class="n">plotter</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2764</span> <span class="k">return</span> <span class="n">ax</span>
+
+<span class="nn">File C:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\seaborn\categorical.py:1587,</span> in <span class="ni">_BarPlotter.plot</span><span class="nt">(self, ax, bar_kws)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1585</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Make the plot.&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1586</span> <span class="bp">self</span><span class="o">.</span><span class="n">draw_bars</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">bar_kws</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1587</span> <span class="bp">self</span><span class="o">.</span><span class="n">annotate_axes</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1588</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">orient</span> <span class="o">==</span> <span class="s2">&quot;h&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1589</span>     <span class="n">ax</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
+
+<span class="nn">File C:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\seaborn\categorical.py:767,</span> in <span class="ni">_CategoricalPlotter.annotate_axes</span><span class="nt">(self, ax)</span>
+<span class="g g-Whitespace">    </span><span class="mi">764</span>     <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">.5</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">plot_data</span><span class="p">)</span> <span class="o">-</span> <span class="mf">.5</span><span class="p">,</span> <span class="n">auto</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">766</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">hue_names</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">767</span>     <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">hue_title</span><span class="p">)</span>
+
+<span class="nn">File C:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\matplotlib\axes\_axes.py:322,</span> in <span class="ni">Axes.legend</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">204</span> <span class="nd">@_docstring</span><span class="o">.</span><span class="n">dedent_interpd</span>
+<span class="g g-Whitespace">    </span><span class="mi">205</span> <span class="k">def</span> <span class="nf">legend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">206</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">207</span><span class="sd">     Place a legend on the Axes.</span>
+<span class="g g-Whitespace">    </span><span class="mi">208</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">320</span><span class="sd">     .. plot:: gallery/text_labels_and_annotations/legend.py</span>
+<span class="g g-Whitespace">    </span><span class="mi">321</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">322</span>     <span class="n">handles</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">kwargs</span> <span class="o">=</span> <span class="n">mlegend</span><span class="o">.</span><span class="n">_parse_legend_args</span><span class="p">([</span><span class="bp">self</span><span class="p">],</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">323</span>     <span class="bp">self</span><span class="o">.</span><span class="n">legend_</span> <span class="o">=</span> <span class="n">mlegend</span><span class="o">.</span><span class="n">Legend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handles</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">324</span>     <span class="bp">self</span><span class="o">.</span><span class="n">legend_</span><span class="o">.</span><span class="n">_remove_method</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_remove_legend</span>
+
+<span class="nn">File C:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\matplotlib\legend.py:1361,</span> in <span class="ni">_parse_legend_args</span><span class="nt">(axs, handles, labels, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1357</span>     <span class="n">handles</span> <span class="o">=</span> <span class="p">[</span><span class="n">handle</span> <span class="k">for</span> <span class="n">handle</span><span class="p">,</span> <span class="n">label</span>
+<span class="g g-Whitespace">   </span><span class="mi">1358</span>                <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">_get_legend_handles</span><span class="p">(</span><span class="n">axs</span><span class="p">,</span> <span class="n">handlers</span><span class="p">),</span> <span class="n">labels</span><span class="p">)]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1360</span> <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># 0 args: automatically detect labels and handles.</span>
+<span class="ne">-&gt; </span><span class="mi">1361</span>     <span class="n">handles</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">_get_legend_handles_labels</span><span class="p">(</span><span class="n">axs</span><span class="p">,</span> <span class="n">handlers</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1362</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">handles</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1363</span>         <span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1364</span>             <span class="s2">&quot;No artists with labels found to put in legend.  Note that &quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1365</span>             <span class="s2">&quot;artists whose label start with an underscore are ignored &quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1366</span>             <span class="s2">&quot;when legend() is called with no argument.&quot;</span><span class="p">)</span>
+
+<span class="nn">File C:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\matplotlib\legend.py:1291,</span> in <span class="ni">_get_legend_handles_labels</span><span class="nt">(axs, legend_handler_map)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1289</span> <span class="k">for</span> <span class="n">handle</span> <span class="ow">in</span> <span class="n">_get_legend_handles</span><span class="p">(</span><span class="n">axs</span><span class="p">,</span> <span class="n">legend_handler_map</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1290</span>     <span class="n">label</span> <span class="o">=</span> <span class="n">handle</span><span class="o">.</span><span class="n">get_label</span><span class="p">()</span>
+<span class="ne">-&gt; </span><span class="mi">1291</span>     <span class="k">if</span> <span class="n">label</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">label</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1292</span>         <span class="n">handles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">handle</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1293</span>         <span class="n">labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+
+<span class="ne">AttributeError</span>: &#39;numpy.float64&#39; object has no attribute &#39;startswith&#39;
 </pre></div>
 </div>
-<img alt="_images/4c31104e40fc2cd9d6d4904ccd168f4e82d5a64dffe4686fc93d6aa2fb6ff6c1.png" src="_images/4c31104e40fc2cd9d6d4904ccd168f4e82d5a64dffe4686fc93d6aa2fb6ff6c1.png" />
+<img alt="_images/86c52113e474e49be3ec611ce5023bfc92b0eb341a8384b19dd8a2b1fe1f9ed2.png" src="_images/86c52113e474e49be3ec611ce5023bfc92b0eb341a8384b19dd8a2b1fe1f9ed2.png" />
 </div>
 </div>
 </section>
@@ -689,10 +1085,10 @@ either in a publication, or a presentation</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x789cf4fa5360&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x1ec85ffaf10&gt;
 </pre></div>
 </div>
-<img alt="_images/80eb1dfee9a00c5ded7419154b3bf9b099bf94cae485edec6befd1a4b27a7dab.png" src="_images/80eb1dfee9a00c5ded7419154b3bf9b099bf94cae485edec6befd1a4b27a7dab.png" />
+<img alt="_images/7444cda4f27f67237c54f5412eec07091859c2852c47f5ae31c0c0c69bcceda5.png" src="_images/7444cda4f27f67237c54f5412eec07091859c2852c47f5ae31c0c0c69bcceda5.png" />
 </div>
 </div>
 </section>
@@ -705,10 +1101,10 @@ either in a publication, or a presentation</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x789cf310a6b0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x1ec85f028d0&gt;
 </pre></div>
 </div>
-<img alt="_images/c13d184a00ff51f0f2a48c1c4ed84514e7fda25ca051f9111dfa1ee88b66df29.png" src="_images/c13d184a00ff51f0f2a48c1c4ed84514e7fda25ca051f9111dfa1ee88b66df29.png" />
+<img alt="_images/81675f0198670a02622a60e98439e87921ecba64b52c96676b54391191c761ff.png" src="_images/81675f0198670a02622a60e98439e87921ecba64b52c96676b54391191c761ff.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -718,10 +1114,10 @@ either in a publication, or a presentation</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x789cf0aa0a90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x1ecffbf2350&gt;
 </pre></div>
 </div>
-<img alt="_images/0d40b089eb13e8b9c7f60fadb209ef264819321f341dc200e189aaa66602e833.png" src="_images/0d40b089eb13e8b9c7f60fadb209ef264819321f341dc200e189aaa66602e833.png" />
+<img alt="_images/4c1c798eb7d685faf6a123cbf44edd33dd0660e86b1df1fc880d2a7a4fc3c1e8.png" src="_images/4c1c798eb7d685faf6a123cbf44edd33dd0660e86b1df1fc880d2a7a4fc3c1e8.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -752,7 +1148,7 @@ either in a publication, or a presentation</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2767df1b182cfa681c956a5b6625576f8e36d7b5aa626334fa7815ac8d07582e.png" src="_images/2767df1b182cfa681c956a5b6625576f8e36d7b5aa626334fa7815ac8d07582e.png" />
+<img alt="_images/3c8b0b7203cfdce1a65e5d88c0cc0ca75ef7d6788026810324d8f72c3072e9e0.png" src="_images/3c8b0b7203cfdce1a65e5d88c0cc0ca75ef7d6788026810324d8f72c3072e9e0.png" />
 </div>
 </div>
 <p>Additional plots and documentation: <a class="reference external" href="https://seaborn.pydata.org/index.html">https://seaborn.pydata.org/index.html</a></p>
@@ -790,12 +1186,12 @@ either in a publication, or a presentation</p></li>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="002_Intro_to_Python.html"
+       href="2_Data_Manipulation.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Intro to Python</p>
+        <p class="prev-next-title">Data Manipulation</p>
       </div>
     </a>
     <a class="right-next"

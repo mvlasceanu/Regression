@@ -18,71 +18,152 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-df = pd.read_csv('data.csv')
-df
+df.groupby(df['condName']).mean()
 ------------------
 
 
 [1;31m---------------------------------------------------------------------------[0m
-[1;31mFileNotFoundError[0m                         Traceback (most recent call last)
-Cell [1;32mIn[22], line 1[0m
-[1;32m----> 1[0m df [38;5;241m=[39m pd[38;5;241m.[39mread_csv([38;5;124m'[39m[38;5;124mdata.csv[39m[38;5;124m'[39m)
-[0;32m      2[0m df
+[1;31mTypeError[0m                                 Traceback (most recent call last)
+File [1;32mC:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\pandas\core\groupby\groupby.py:1874[0m, in [0;36mGroupBy._agg_py_fallback[1;34m(self, how, values, ndim, alt)[0m
+[0;32m   1873[0m [38;5;28;01mtry[39;00m:
+[1;32m-> 1874[0m     res_values [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mgrouper[38;5;241m.[39magg_series(ser, alt, preserve_dtype[38;5;241m=[39m[38;5;28;01mTrue[39;00m)
+[0;32m   1875[0m [38;5;28;01mexcept[39;00m [38;5;167;01mException[39;00m [38;5;28;01mas[39;00m err:
 
-File [1;32mC:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\pandas\io\parsers\readers.py:948[0m, in [0;36mread_csv[1;34m(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)[0m
-[0;32m    935[0m kwds_defaults [38;5;241m=[39m _refine_defaults_read(
-[0;32m    936[0m     dialect,
-[0;32m    937[0m     delimiter,
+File [1;32mC:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\pandas\core\groupby\ops.py:849[0m, in [0;36mBaseGrouper.agg_series[1;34m(self, obj, func, preserve_dtype)[0m
+[0;32m    847[0m     preserve_dtype [38;5;241m=[39m [38;5;28;01mTrue[39;00m
+[1;32m--> 849[0m result [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m_aggregate_series_pure_python(obj, func)
+[0;32m    851[0m [38;5;28;01mif[39;00m [38;5;28mlen[39m(obj) [38;5;241m==[39m [38;5;241m0[39m [38;5;129;01mand[39;00m [38;5;28mlen[39m(result) [38;5;241m==[39m [38;5;241m0[39m [38;5;129;01mand[39;00m [38;5;28misinstance[39m(obj[38;5;241m.[39mdtype, ExtensionDtype):
+
+File [1;32mC:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\pandas\core\groupby\ops.py:877[0m, in [0;36mBaseGrouper._aggregate_series_pure_python[1;34m(self, obj, func)[0m
+[0;32m    876[0m [38;5;28;01mfor[39;00m i, group [38;5;129;01min[39;00m [38;5;28menumerate[39m(splitter):
+[1;32m--> 877[0m     res [38;5;241m=[39m func(group)
+[0;32m    878[0m     res [38;5;241m=[39m extract_result(res)
+
+File [1;32mC:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\pandas\core\groupby\groupby.py:2380[0m, in [0;36mGroupBy.mean.<locals>.<lambda>[1;34m(x)[0m
+[0;32m   2377[0m [38;5;28;01melse[39;00m:
+[0;32m   2378[0m     result [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m_cython_agg_general(
+[0;32m   2379[0m         [38;5;124m"[39m[38;5;124mmean[39m[38;5;124m"[39m,
+[1;32m-> 2380[0m         alt[38;5;241m=[39m[38;5;28;01mlambda[39;00m x: Series(x)[38;5;241m.[39mmean(numeric_only[38;5;241m=[39mnumeric_only),
+[0;32m   2381[0m         numeric_only[38;5;241m=[39mnumeric_only,
+[0;32m   2382[0m     )
+[0;32m   2383[0m     [38;5;28;01mreturn[39;00m result[38;5;241m.[39m__finalize__([38;5;28mself[39m[38;5;241m.[39mobj, method[38;5;241m=[39m[38;5;124m"[39m[38;5;124mgroupby[39m[38;5;124m"[39m)
+
+File [1;32mC:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\pandas\core\series.py:6225[0m, in [0;36mSeries.mean[1;34m(self, axis, skipna, numeric_only, **kwargs)[0m
+[0;32m   6217[0m [38;5;129m@doc[39m(make_doc([38;5;124m"[39m[38;5;124mmean[39m[38;5;124m"[39m, ndim[38;5;241m=[39m[38;5;241m1[39m))
+[0;32m   6218[0m [38;5;28;01mdef[39;00m [38;5;21mmean[39m(
+[0;32m   6219[0m     [38;5;28mself[39m,
 [1;32m   (...)[0m
-[0;32m    944[0m     dtype_backend[38;5;241m=[39mdtype_backend,
-[0;32m    945[0m )
-[0;32m    946[0m kwds[38;5;241m.[39mupdate(kwds_defaults)
-[1;32m--> 948[0m [38;5;28;01mreturn[39;00m _read(filepath_or_buffer, kwds)
+[0;32m   6223[0m     [38;5;241m*[39m[38;5;241m*[39mkwargs,
+[0;32m   6224[0m ):
+[1;32m-> 6225[0m     [38;5;28;01mreturn[39;00m NDFrame[38;5;241m.[39mmean([38;5;28mself[39m, axis, skipna, numeric_only, [38;5;241m*[39m[38;5;241m*[39mkwargs)
 
-File [1;32mC:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\pandas\io\parsers\readers.py:611[0m, in [0;36m_read[1;34m(filepath_or_buffer, kwds)[0m
-[0;32m    608[0m _validate_names(kwds[38;5;241m.[39mget([38;5;124m"[39m[38;5;124mnames[39m[38;5;124m"[39m, [38;5;28;01mNone[39;00m))
-[0;32m    610[0m [38;5;66;03m# Create the parser.[39;00m
-[1;32m--> 611[0m parser [38;5;241m=[39m TextFileReader(filepath_or_buffer, [38;5;241m*[39m[38;5;241m*[39mkwds)
-[0;32m    613[0m [38;5;28;01mif[39;00m chunksize [38;5;129;01mor[39;00m iterator:
-[0;32m    614[0m     [38;5;28;01mreturn[39;00m parser
+File [1;32mC:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\pandas\core\generic.py:11992[0m, in [0;36mNDFrame.mean[1;34m(self, axis, skipna, numeric_only, **kwargs)[0m
+[0;32m  11985[0m [38;5;28;01mdef[39;00m [38;5;21mmean[39m(
+[0;32m  11986[0m     [38;5;28mself[39m,
+[0;32m  11987[0m     axis: Axis [38;5;241m|[39m [38;5;28;01mNone[39;00m [38;5;241m=[39m [38;5;241m0[39m,
+[1;32m   (...)[0m
+[0;32m  11990[0m     [38;5;241m*[39m[38;5;241m*[39mkwargs,
+[0;32m  11991[0m ) [38;5;241m-[39m[38;5;241m>[39m Series [38;5;241m|[39m [38;5;28mfloat[39m:
+[1;32m> 11992[0m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39m_stat_function(
+[0;32m  11993[0m         [38;5;124m"[39m[38;5;124mmean[39m[38;5;124m"[39m, nanops[38;5;241m.[39mnanmean, axis, skipna, numeric_only, [38;5;241m*[39m[38;5;241m*[39mkwargs
+[0;32m  11994[0m     )
 
-File [1;32mC:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\pandas\io\parsers\readers.py:1448[0m, in [0;36mTextFileReader.__init__[1;34m(self, f, engine, **kwds)[0m
-[0;32m   1445[0m     [38;5;28mself[39m[38;5;241m.[39moptions[[38;5;124m"[39m[38;5;124mhas_index_names[39m[38;5;124m"[39m] [38;5;241m=[39m kwds[[38;5;124m"[39m[38;5;124mhas_index_names[39m[38;5;124m"[39m]
-[0;32m   1447[0m [38;5;28mself[39m[38;5;241m.[39mhandles: IOHandles [38;5;241m|[39m [38;5;28;01mNone[39;00m [38;5;241m=[39m [38;5;28;01mNone[39;00m
-[1;32m-> 1448[0m [38;5;28mself[39m[38;5;241m.[39m_engine [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m_make_engine(f, [38;5;28mself[39m[38;5;241m.[39mengine)
+File [1;32mC:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\pandas\core\generic.py:11949[0m, in [0;36mNDFrame._stat_function[1;34m(self, name, func, axis, skipna, numeric_only, **kwargs)[0m
+[0;32m  11947[0m validate_bool_kwarg(skipna, [38;5;124m"[39m[38;5;124mskipna[39m[38;5;124m"[39m, none_allowed[38;5;241m=[39m[38;5;28;01mFalse[39;00m)
+[1;32m> 11949[0m [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39m_reduce(
+[0;32m  11950[0m     func, name[38;5;241m=[39mname, axis[38;5;241m=[39maxis, skipna[38;5;241m=[39mskipna, numeric_only[38;5;241m=[39mnumeric_only
+[0;32m  11951[0m )
 
-File [1;32mC:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\pandas\io\parsers\readers.py:1705[0m, in [0;36mTextFileReader._make_engine[1;34m(self, f, engine)[0m
-[0;32m   1703[0m     [38;5;28;01mif[39;00m [38;5;124m"[39m[38;5;124mb[39m[38;5;124m"[39m [38;5;129;01mnot[39;00m [38;5;129;01min[39;00m mode:
-[0;32m   1704[0m         mode [38;5;241m+[39m[38;5;241m=[39m [38;5;124m"[39m[38;5;124mb[39m[38;5;124m"[39m
-[1;32m-> 1705[0m [38;5;28mself[39m[38;5;241m.[39mhandles [38;5;241m=[39m get_handle(
-[0;32m   1706[0m     f,
-[0;32m   1707[0m     mode,
-[0;32m   1708[0m     encoding[38;5;241m=[39m[38;5;28mself[39m[38;5;241m.[39moptions[38;5;241m.[39mget([38;5;124m"[39m[38;5;124mencoding[39m[38;5;124m"[39m, [38;5;28;01mNone[39;00m),
-[0;32m   1709[0m     compression[38;5;241m=[39m[38;5;28mself[39m[38;5;241m.[39moptions[38;5;241m.[39mget([38;5;124m"[39m[38;5;124mcompression[39m[38;5;124m"[39m, [38;5;28;01mNone[39;00m),
-[0;32m   1710[0m     memory_map[38;5;241m=[39m[38;5;28mself[39m[38;5;241m.[39moptions[38;5;241m.[39mget([38;5;124m"[39m[38;5;124mmemory_map[39m[38;5;124m"[39m, [38;5;28;01mFalse[39;00m),
-[0;32m   1711[0m     is_text[38;5;241m=[39mis_text,
-[0;32m   1712[0m     errors[38;5;241m=[39m[38;5;28mself[39m[38;5;241m.[39moptions[38;5;241m.[39mget([38;5;124m"[39m[38;5;124mencoding_errors[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mstrict[39m[38;5;124m"[39m),
-[0;32m   1713[0m     storage_options[38;5;241m=[39m[38;5;28mself[39m[38;5;241m.[39moptions[38;5;241m.[39mget([38;5;124m"[39m[38;5;124mstorage_options[39m[38;5;124m"[39m, [38;5;28;01mNone[39;00m),
-[0;32m   1714[0m )
-[0;32m   1715[0m [38;5;28;01massert[39;00m [38;5;28mself[39m[38;5;241m.[39mhandles [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m
-[0;32m   1716[0m f [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mhandles[38;5;241m.[39mhandle
+File [1;32mC:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\pandas\core\series.py:6133[0m, in [0;36mSeries._reduce[1;34m(self, op, name, axis, skipna, numeric_only, filter_type, **kwds)[0m
+[0;32m   6129[0m     [38;5;28;01mraise[39;00m [38;5;167;01mTypeError[39;00m(
+[0;32m   6130[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;124mSeries.[39m[38;5;132;01m{[39;00mname[38;5;132;01m}[39;00m[38;5;124m does not allow [39m[38;5;132;01m{[39;00mkwd_name[38;5;132;01m}[39;00m[38;5;124m=[39m[38;5;132;01m{[39;00mnumeric_only[38;5;132;01m}[39;00m[38;5;124m [39m[38;5;124m"[39m
+[0;32m   6131[0m         [38;5;124m"[39m[38;5;124mwith non-numeric dtypes.[39m[38;5;124m"[39m
+[0;32m   6132[0m     )
+[1;32m-> 6133[0m [38;5;28;01mreturn[39;00m op(delegate, skipna[38;5;241m=[39mskipna, [38;5;241m*[39m[38;5;241m*[39mkwds)
 
-File [1;32mC:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\pandas\io\common.py:863[0m, in [0;36mget_handle[1;34m(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)[0m
-[0;32m    858[0m [38;5;28;01melif[39;00m [38;5;28misinstance[39m(handle, [38;5;28mstr[39m):
-[0;32m    859[0m     [38;5;66;03m# Check whether the filename is to be opened in binary mode.[39;00m
-[0;32m    860[0m     [38;5;66;03m# Binary mode does not support 'encoding' and 'newline'.[39;00m
-[0;32m    861[0m     [38;5;28;01mif[39;00m ioargs[38;5;241m.[39mencoding [38;5;129;01mand[39;00m [38;5;124m"[39m[38;5;124mb[39m[38;5;124m"[39m [38;5;129;01mnot[39;00m [38;5;129;01min[39;00m ioargs[38;5;241m.[39mmode:
-[0;32m    862[0m         [38;5;66;03m# Encoding[39;00m
-[1;32m--> 863[0m         handle [38;5;241m=[39m [38;5;28mopen[39m(
-[0;32m    864[0m             handle,
-[0;32m    865[0m             ioargs[38;5;241m.[39mmode,
-[0;32m    866[0m             encoding[38;5;241m=[39mioargs[38;5;241m.[39mencoding,
-[0;32m    867[0m             errors[38;5;241m=[39merrors,
-[0;32m    868[0m             newline[38;5;241m=[39m[38;5;124m"[39m[38;5;124m"[39m,
-[0;32m    869[0m         )
-[0;32m    870[0m     [38;5;28;01melse[39;00m:
-[0;32m    871[0m         [38;5;66;03m# Binary mode[39;00m
-[0;32m    872[0m         handle [38;5;241m=[39m [38;5;28mopen[39m(handle, ioargs[38;5;241m.[39mmode)
+File [1;32mC:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\pandas\core\nanops.py:147[0m, in [0;36mbottleneck_switch.__call__.<locals>.f[1;34m(values, axis, skipna, **kwds)[0m
+[0;32m    146[0m [38;5;28;01melse[39;00m:
+[1;32m--> 147[0m     result [38;5;241m=[39m alt(values, axis[38;5;241m=[39maxis, skipna[38;5;241m=[39mskipna, [38;5;241m*[39m[38;5;241m*[39mkwds)
+[0;32m    149[0m [38;5;28;01mreturn[39;00m result
 
-[1;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'data.csv'
+File [1;32mC:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\pandas\core\nanops.py:404[0m, in [0;36m_datetimelike_compat.<locals>.new_func[1;34m(values, axis, skipna, mask, **kwargs)[0m
+[0;32m    402[0m     mask [38;5;241m=[39m isna(values)
+[1;32m--> 404[0m result [38;5;241m=[39m func(values, axis[38;5;241m=[39maxis, skipna[38;5;241m=[39mskipna, mask[38;5;241m=[39mmask, [38;5;241m*[39m[38;5;241m*[39mkwargs)
+[0;32m    406[0m [38;5;28;01mif[39;00m datetimelike:
+
+File [1;32mC:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\pandas\core\nanops.py:720[0m, in [0;36mnanmean[1;34m(values, axis, skipna, mask)[0m
+[0;32m    719[0m the_sum [38;5;241m=[39m values[38;5;241m.[39msum(axis, dtype[38;5;241m=[39mdtype_sum)
+[1;32m--> 720[0m the_sum [38;5;241m=[39m _ensure_numeric(the_sum)
+[0;32m    722[0m [38;5;28;01mif[39;00m axis [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m [38;5;129;01mand[39;00m [38;5;28mgetattr[39m(the_sum, [38;5;124m"[39m[38;5;124mndim[39m[38;5;124m"[39m, [38;5;28;01mFalse[39;00m):
+
+File [1;32mC:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\pandas\core\nanops.py:1693[0m, in [0;36m_ensure_numeric[1;34m(x)[0m
+[0;32m   1691[0m [38;5;28;01mif[39;00m [38;5;28misinstance[39m(x, [38;5;28mstr[39m):
+[0;32m   1692[0m     [38;5;66;03m# GH#44008, GH#36703 avoid casting e.g. strings to numeric[39;00m
+[1;32m-> 1693[0m     [38;5;28;01mraise[39;00m [38;5;167;01mTypeError[39;00m([38;5;124mf[39m[38;5;124m"[39m[38;5;124mCould not convert string [39m[38;5;124m'[39m[38;5;132;01m{[39;00mx[38;5;132;01m}[39;00m[38;5;124m'[39m[38;5;124m to numeric[39m[38;5;124m"[39m)
+[0;32m   1694[0m [38;5;28;01mtry[39;00m:
+
+[1;31mTypeError[0m: Could not convert string 'R_1ONRMXgQ310zjNmR_eW20eHgDtQxwsEhR_3DkmlZe7KArpU9VR_3HIhfT8l45dxuJkR_2Vw1cAnrZzdIFDsR_2TGlaAsdkmzplgpR_3P5Ajn0kzqfxLIlR_3Pt1n6QVo8cKXVtR_2BeAynurcaoCmLPR_21zWvAald169AacR_3DxMLviGts0eYCdR_TwlQf2oowlYubtvR_30uAlF3t4ZqvKTlR_SHjBoNzs30yBZsdR_1OHshApYZYsAQyOR_3s4ez4cL22mjghIR_2ZOlj2yNsB0R9kNR_sFJ2fShoS2vzwEVR_1mltkRq1La2tnqWR_3nBZtI18kCebhzFR_3Mhg0i9kyhAgPglR_2c5jhBrJj1oPvo0R_23UgeVaaC1npjt2' to numeric
+
+The above exception was the direct cause of the following exception:
+
+[1;31mTypeError[0m                                 Traceback (most recent call last)
+Cell [1;32mIn[41], line 1[0m
+[1;32m----> 1[0m df[38;5;241m.[39mgroupby(df[[38;5;124m'[39m[38;5;124mcondName[39m[38;5;124m'[39m])[38;5;241m.[39mmean()
+
+File [1;32mC:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\pandas\core\groupby\groupby.py:2378[0m, in [0;36mGroupBy.mean[1;34m(self, numeric_only, engine, engine_kwargs)[0m
+[0;32m   2371[0m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39m_numba_agg_general(
+[0;32m   2372[0m         grouped_mean,
+[0;32m   2373[0m         executor[38;5;241m.[39mfloat_dtype_mapping,
+[0;32m   2374[0m         engine_kwargs,
+[0;32m   2375[0m         min_periods[38;5;241m=[39m[38;5;241m0[39m,
+[0;32m   2376[0m     )
+[0;32m   2377[0m [38;5;28;01melse[39;00m:
+[1;32m-> 2378[0m     result [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m_cython_agg_general(
+[0;32m   2379[0m         [38;5;124m"[39m[38;5;124mmean[39m[38;5;124m"[39m,
+[0;32m   2380[0m         alt[38;5;241m=[39m[38;5;28;01mlambda[39;00m x: Series(x)[38;5;241m.[39mmean(numeric_only[38;5;241m=[39mnumeric_only),
+[0;32m   2381[0m         numeric_only[38;5;241m=[39mnumeric_only,
+[0;32m   2382[0m     )
+[0;32m   2383[0m     [38;5;28;01mreturn[39;00m result[38;5;241m.[39m__finalize__([38;5;28mself[39m[38;5;241m.[39mobj, method[38;5;241m=[39m[38;5;124m"[39m[38;5;124mgroupby[39m[38;5;124m"[39m)
+
+File [1;32mC:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\pandas\core\groupby\groupby.py:1929[0m, in [0;36mGroupBy._cython_agg_general[1;34m(self, how, alt, numeric_only, min_count, **kwargs)[0m
+[0;32m   1926[0m     result [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m_agg_py_fallback(how, values, ndim[38;5;241m=[39mdata[38;5;241m.[39mndim, alt[38;5;241m=[39malt)
+[0;32m   1927[0m     [38;5;28;01mreturn[39;00m result
+[1;32m-> 1929[0m new_mgr [38;5;241m=[39m data[38;5;241m.[39mgrouped_reduce(array_func)
+[0;32m   1930[0m res [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m_wrap_agged_manager(new_mgr)
+[0;32m   1931[0m out [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m_wrap_aggregated_output(res)
+
+File [1;32mC:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\pandas\core\internals\managers.py:1428[0m, in [0;36mBlockManager.grouped_reduce[1;34m(self, func)[0m
+[0;32m   1424[0m [38;5;28;01mif[39;00m blk[38;5;241m.[39mis_object:
+[0;32m   1425[0m     [38;5;66;03m# split on object-dtype blocks bc some columns may raise[39;00m
+[0;32m   1426[0m     [38;5;66;03m#  while others do not.[39;00m
+[0;32m   1427[0m     [38;5;28;01mfor[39;00m sb [38;5;129;01min[39;00m blk[38;5;241m.[39m_split():
+[1;32m-> 1428[0m         applied [38;5;241m=[39m sb[38;5;241m.[39mapply(func)
+[0;32m   1429[0m         result_blocks [38;5;241m=[39m extend_blocks(applied, result_blocks)
+[0;32m   1430[0m [38;5;28;01melse[39;00m:
+
+File [1;32mC:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\pandas\core\internals\blocks.py:366[0m, in [0;36mBlock.apply[1;34m(self, func, **kwargs)[0m
+[0;32m    360[0m [38;5;129m@final[39m
+[0;32m    361[0m [38;5;28;01mdef[39;00m [38;5;21mapply[39m([38;5;28mself[39m, func, [38;5;241m*[39m[38;5;241m*[39mkwargs) [38;5;241m-[39m[38;5;241m>[39m [38;5;28mlist[39m[Block]:
+[0;32m    362[0m [38;5;250m    [39m[38;5;124;03m"""[39;00m
+[0;32m    363[0m [38;5;124;03m    apply the function to my values; return a block if we are not[39;00m
+[0;32m    364[0m [38;5;124;03m    one[39;00m
+[0;32m    365[0m [38;5;124;03m    """[39;00m
+[1;32m--> 366[0m     result [38;5;241m=[39m func([38;5;28mself[39m[38;5;241m.[39mvalues, [38;5;241m*[39m[38;5;241m*[39mkwargs)
+[0;32m    368[0m     result [38;5;241m=[39m maybe_coerce_values(result)
+[0;32m    369[0m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39m_split_op_result(result)
+
+File [1;32mC:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\pandas\core\groupby\groupby.py:1926[0m, in [0;36mGroupBy._cython_agg_general.<locals>.array_func[1;34m(values)[0m
+[0;32m   1923[0m [38;5;28;01melse[39;00m:
+[0;32m   1924[0m     [38;5;28;01mreturn[39;00m result
+[1;32m-> 1926[0m result [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m_agg_py_fallback(how, values, ndim[38;5;241m=[39mdata[38;5;241m.[39mndim, alt[38;5;241m=[39malt)
+[0;32m   1927[0m [38;5;28;01mreturn[39;00m result
+
+File [1;32mC:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\pandas\core\groupby\groupby.py:1878[0m, in [0;36mGroupBy._agg_py_fallback[1;34m(self, how, values, ndim, alt)[0m
+[0;32m   1876[0m     msg [38;5;241m=[39m [38;5;124mf[39m[38;5;124m"[39m[38;5;124magg function failed [how->[39m[38;5;132;01m{[39;00mhow[38;5;132;01m}[39;00m[38;5;124m,dtype->[39m[38;5;132;01m{[39;00mser[38;5;241m.[39mdtype[38;5;132;01m}[39;00m[38;5;124m][39m[38;5;124m"[39m
+[0;32m   1877[0m     [38;5;66;03m# preserve the kind of exception that raised[39;00m
+[1;32m-> 1878[0m     [38;5;28;01mraise[39;00m [38;5;28mtype[39m(err)(msg) [38;5;28;01mfrom[39;00m [38;5;21;01merr[39;00m
+[0;32m   1880[0m [38;5;28;01mif[39;00m ser[38;5;241m.[39mdtype [38;5;241m==[39m [38;5;28mobject[39m:
+[0;32m   1881[0m     res_values [38;5;241m=[39m res_values[38;5;241m.[39mastype([38;5;28mobject[39m, copy[38;5;241m=[39m[38;5;28;01mFalse[39;00m)
+
+[1;31mTypeError[0m: agg function failed [how->mean,dtype->object]
 

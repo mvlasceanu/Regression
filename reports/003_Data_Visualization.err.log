@@ -18,71 +18,85 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-df = pd.read_csv('data.csv')
-df
+sns.catplot(x='Gender', y='BELIEFcc', kind="bar", hue='Edu', data=df)
 ------------------
 
 
 [1;31m---------------------------------------------------------------------------[0m
-[1;31mFileNotFoundError[0m                         Traceback (most recent call last)
-Cell [1;32mIn[2], line 1[0m
-[1;32m----> 1[0m df [38;5;241m=[39m pd[38;5;241m.[39mread_csv([38;5;124m'[39m[38;5;124mdata.csv[39m[38;5;124m'[39m)
-[0;32m      2[0m df
+[1;31mAttributeError[0m                            Traceback (most recent call last)
+Cell [1;32mIn[11], line 1[0m
+[1;32m----> 1[0m sns[38;5;241m.[39mcatplot(x[38;5;241m=[39m[38;5;124m'[39m[38;5;124mGender[39m[38;5;124m'[39m, y[38;5;241m=[39m[38;5;124m'[39m[38;5;124mBELIEFcc[39m[38;5;124m'[39m, kind[38;5;241m=[39m[38;5;124m"[39m[38;5;124mbar[39m[38;5;124m"[39m, hue[38;5;241m=[39m[38;5;124m'[39m[38;5;124mEdu[39m[38;5;124m'[39m, data[38;5;241m=[39mdf)
 
-File [1;32mC:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\pandas\io\parsers\readers.py:948[0m, in [0;36mread_csv[1;34m(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)[0m
-[0;32m    935[0m kwds_defaults [38;5;241m=[39m _refine_defaults_read(
-[0;32m    936[0m     dialect,
-[0;32m    937[0m     delimiter,
+File [1;32mC:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\seaborn\categorical.py:3244[0m, in [0;36mcatplot[1;34m(data, x, y, hue, row, col, col_wrap, estimator, errorbar, n_boot, units, seed, order, hue_order, row_order, col_order, height, aspect, kind, native_scale, formatter, orient, color, palette, hue_norm, legend, legend_out, sharex, sharey, margin_titles, facet_kws, ci, **kwargs)[0m
+[0;32m   3241[0m g [38;5;241m=[39m FacetGrid([38;5;241m*[39m[38;5;241m*[39mfacet_kws)
+[0;32m   3243[0m [38;5;66;03m# Draw the plot onto the facets[39;00m
+[1;32m-> 3244[0m g[38;5;241m.[39mmap_dataframe(plot_func, x[38;5;241m=[39mx, y[38;5;241m=[39my, hue[38;5;241m=[39mhue, [38;5;241m*[39m[38;5;241m*[39mplot_kws)
+[0;32m   3246[0m [38;5;28;01mif[39;00m p[38;5;241m.[39morient [38;5;241m==[39m [38;5;124m"[39m[38;5;124mh[39m[38;5;124m"[39m:
+[0;32m   3247[0m     g[38;5;241m.[39mset_axis_labels(p[38;5;241m.[39mvalue_label, p[38;5;241m.[39mgroup_label)
+
+File [1;32mC:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\seaborn\axisgrid.py:819[0m, in [0;36mFacetGrid.map_dataframe[1;34m(self, func, *args, **kwargs)[0m
+[0;32m    816[0m     kwargs[[38;5;124m"[39m[38;5;124mdata[39m[38;5;124m"[39m] [38;5;241m=[39m data_ijk
+[0;32m    818[0m     [38;5;66;03m# Draw the plot[39;00m
+[1;32m--> 819[0m     [38;5;28mself[39m[38;5;241m.[39m_facet_plot(func, ax, args, kwargs)
+[0;32m    821[0m [38;5;66;03m# For axis labels, prefer to use positional args for backcompat[39;00m
+[0;32m    822[0m [38;5;66;03m# but also extract the x/y kwargs and use if no corresponding arg[39;00m
+[0;32m    823[0m axis_labels [38;5;241m=[39m [kwargs[38;5;241m.[39mget([38;5;124m"[39m[38;5;124mx[39m[38;5;124m"[39m, [38;5;28;01mNone[39;00m), kwargs[38;5;241m.[39mget([38;5;124m"[39m[38;5;124my[39m[38;5;124m"[39m, [38;5;28;01mNone[39;00m)]
+
+File [1;32mC:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\seaborn\axisgrid.py:848[0m, in [0;36mFacetGrid._facet_plot[1;34m(self, func, ax, plot_args, plot_kwargs)[0m
+[0;32m    846[0m     plot_args [38;5;241m=[39m []
+[0;32m    847[0m     plot_kwargs[[38;5;124m"[39m[38;5;124max[39m[38;5;124m"[39m] [38;5;241m=[39m ax
+[1;32m--> 848[0m func([38;5;241m*[39mplot_args, [38;5;241m*[39m[38;5;241m*[39mplot_kwargs)
+[0;32m    850[0m [38;5;66;03m# Sort out the supporting information[39;00m
+[0;32m    851[0m [38;5;28mself[39m[38;5;241m.[39m_update_legend_data(ax)
+
+File [1;32mC:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\seaborn\categorical.py:2763[0m, in [0;36mbarplot[1;34m(data, x, y, hue, order, hue_order, estimator, errorbar, n_boot, units, seed, orient, color, palette, saturation, width, errcolor, errwidth, capsize, dodge, ci, ax, **kwargs)[0m
+[0;32m   2760[0m [38;5;28;01mif[39;00m ax [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[0;32m   2761[0m     ax [38;5;241m=[39m plt[38;5;241m.[39mgca()
+[1;32m-> 2763[0m plotter[38;5;241m.[39mplot(ax, kwargs)
+[0;32m   2764[0m [38;5;28;01mreturn[39;00m ax
+
+File [1;32mC:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\seaborn\categorical.py:1587[0m, in [0;36m_BarPlotter.plot[1;34m(self, ax, bar_kws)[0m
+[0;32m   1585[0m [38;5;250m[39m[38;5;124;03m"""Make the plot."""[39;00m
+[0;32m   1586[0m [38;5;28mself[39m[38;5;241m.[39mdraw_bars(ax, bar_kws)
+[1;32m-> 1587[0m [38;5;28mself[39m[38;5;241m.[39mannotate_axes(ax)
+[0;32m   1588[0m [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39morient [38;5;241m==[39m [38;5;124m"[39m[38;5;124mh[39m[38;5;124m"[39m:
+[0;32m   1589[0m     ax[38;5;241m.[39minvert_yaxis()
+
+File [1;32mC:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\seaborn\categorical.py:767[0m, in [0;36m_CategoricalPlotter.annotate_axes[1;34m(self, ax)[0m
+[0;32m    764[0m     ax[38;5;241m.[39mset_ylim([38;5;241m-[39m[38;5;241m.5[39m, [38;5;28mlen[39m([38;5;28mself[39m[38;5;241m.[39mplot_data) [38;5;241m-[39m [38;5;241m.5[39m, auto[38;5;241m=[39m[38;5;28;01mNone[39;00m)
+[0;32m    766[0m [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39mhue_names [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+[1;32m--> 767[0m     ax[38;5;241m.[39mlegend(loc[38;5;241m=[39m[38;5;124m"[39m[38;5;124mbest[39m[38;5;124m"[39m, title[38;5;241m=[39m[38;5;28mself[39m[38;5;241m.[39mhue_title)
+
+File [1;32mC:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\matplotlib\axes\_axes.py:322[0m, in [0;36mAxes.legend[1;34m(self, *args, **kwargs)[0m
+[0;32m    204[0m [38;5;129m@_docstring[39m[38;5;241m.[39mdedent_interpd
+[0;32m    205[0m [38;5;28;01mdef[39;00m [38;5;21mlegend[39m([38;5;28mself[39m, [38;5;241m*[39margs, [38;5;241m*[39m[38;5;241m*[39mkwargs):
+[0;32m    206[0m [38;5;250m    [39m[38;5;124;03m"""[39;00m
+[0;32m    207[0m [38;5;124;03m    Place a legend on the Axes.[39;00m
+[0;32m    208[0m 
 [1;32m   (...)[0m
-[0;32m    944[0m     dtype_backend[38;5;241m=[39mdtype_backend,
-[0;32m    945[0m )
-[0;32m    946[0m kwds[38;5;241m.[39mupdate(kwds_defaults)
-[1;32m--> 948[0m [38;5;28;01mreturn[39;00m _read(filepath_or_buffer, kwds)
+[0;32m    320[0m [38;5;124;03m    .. plot:: gallery/text_labels_and_annotations/legend.py[39;00m
+[0;32m    321[0m [38;5;124;03m    """[39;00m
+[1;32m--> 322[0m     handles, labels, kwargs [38;5;241m=[39m mlegend[38;5;241m.[39m_parse_legend_args([[38;5;28mself[39m], [38;5;241m*[39margs, [38;5;241m*[39m[38;5;241m*[39mkwargs)
+[0;32m    323[0m     [38;5;28mself[39m[38;5;241m.[39mlegend_ [38;5;241m=[39m mlegend[38;5;241m.[39mLegend([38;5;28mself[39m, handles, labels, [38;5;241m*[39m[38;5;241m*[39mkwargs)
+[0;32m    324[0m     [38;5;28mself[39m[38;5;241m.[39mlegend_[38;5;241m.[39m_remove_method [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m_remove_legend
 
-File [1;32mC:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\pandas\io\parsers\readers.py:611[0m, in [0;36m_read[1;34m(filepath_or_buffer, kwds)[0m
-[0;32m    608[0m _validate_names(kwds[38;5;241m.[39mget([38;5;124m"[39m[38;5;124mnames[39m[38;5;124m"[39m, [38;5;28;01mNone[39;00m))
-[0;32m    610[0m [38;5;66;03m# Create the parser.[39;00m
-[1;32m--> 611[0m parser [38;5;241m=[39m TextFileReader(filepath_or_buffer, [38;5;241m*[39m[38;5;241m*[39mkwds)
-[0;32m    613[0m [38;5;28;01mif[39;00m chunksize [38;5;129;01mor[39;00m iterator:
-[0;32m    614[0m     [38;5;28;01mreturn[39;00m parser
+File [1;32mC:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\matplotlib\legend.py:1361[0m, in [0;36m_parse_legend_args[1;34m(axs, handles, labels, *args, **kwargs)[0m
+[0;32m   1357[0m     handles [38;5;241m=[39m [handle [38;5;28;01mfor[39;00m handle, label
+[0;32m   1358[0m                [38;5;129;01min[39;00m [38;5;28mzip[39m(_get_legend_handles(axs, handlers), labels)]
+[0;32m   1360[0m [38;5;28;01melif[39;00m [38;5;28mlen[39m(args) [38;5;241m==[39m [38;5;241m0[39m:  [38;5;66;03m# 0 args: automatically detect labels and handles.[39;00m
+[1;32m-> 1361[0m     handles, labels [38;5;241m=[39m _get_legend_handles_labels(axs, handlers)
+[0;32m   1362[0m     [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m handles:
+[0;32m   1363[0m         log[38;5;241m.[39mwarning(
+[0;32m   1364[0m             [38;5;124m"[39m[38;5;124mNo artists with labels found to put in legend.  Note that [39m[38;5;124m"[39m
+[0;32m   1365[0m             [38;5;124m"[39m[38;5;124martists whose label start with an underscore are ignored [39m[38;5;124m"[39m
+[0;32m   1366[0m             [38;5;124m"[39m[38;5;124mwhen legend() is called with no argument.[39m[38;5;124m"[39m)
 
-File [1;32mC:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\pandas\io\parsers\readers.py:1448[0m, in [0;36mTextFileReader.__init__[1;34m(self, f, engine, **kwds)[0m
-[0;32m   1445[0m     [38;5;28mself[39m[38;5;241m.[39moptions[[38;5;124m"[39m[38;5;124mhas_index_names[39m[38;5;124m"[39m] [38;5;241m=[39m kwds[[38;5;124m"[39m[38;5;124mhas_index_names[39m[38;5;124m"[39m]
-[0;32m   1447[0m [38;5;28mself[39m[38;5;241m.[39mhandles: IOHandles [38;5;241m|[39m [38;5;28;01mNone[39;00m [38;5;241m=[39m [38;5;28;01mNone[39;00m
-[1;32m-> 1448[0m [38;5;28mself[39m[38;5;241m.[39m_engine [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m_make_engine(f, [38;5;28mself[39m[38;5;241m.[39mengine)
+File [1;32mC:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\matplotlib\legend.py:1291[0m, in [0;36m_get_legend_handles_labels[1;34m(axs, legend_handler_map)[0m
+[0;32m   1289[0m [38;5;28;01mfor[39;00m handle [38;5;129;01min[39;00m _get_legend_handles(axs, legend_handler_map):
+[0;32m   1290[0m     label [38;5;241m=[39m handle[38;5;241m.[39mget_label()
+[1;32m-> 1291[0m     [38;5;28;01mif[39;00m label [38;5;129;01mand[39;00m [38;5;129;01mnot[39;00m label[38;5;241m.[39mstartswith([38;5;124m'[39m[38;5;124m_[39m[38;5;124m'[39m):
+[0;32m   1292[0m         handles[38;5;241m.[39mappend(handle)
+[0;32m   1293[0m         labels[38;5;241m.[39mappend(label)
 
-File [1;32mC:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\pandas\io\parsers\readers.py:1705[0m, in [0;36mTextFileReader._make_engine[1;34m(self, f, engine)[0m
-[0;32m   1703[0m     [38;5;28;01mif[39;00m [38;5;124m"[39m[38;5;124mb[39m[38;5;124m"[39m [38;5;129;01mnot[39;00m [38;5;129;01min[39;00m mode:
-[0;32m   1704[0m         mode [38;5;241m+[39m[38;5;241m=[39m [38;5;124m"[39m[38;5;124mb[39m[38;5;124m"[39m
-[1;32m-> 1705[0m [38;5;28mself[39m[38;5;241m.[39mhandles [38;5;241m=[39m get_handle(
-[0;32m   1706[0m     f,
-[0;32m   1707[0m     mode,
-[0;32m   1708[0m     encoding[38;5;241m=[39m[38;5;28mself[39m[38;5;241m.[39moptions[38;5;241m.[39mget([38;5;124m"[39m[38;5;124mencoding[39m[38;5;124m"[39m, [38;5;28;01mNone[39;00m),
-[0;32m   1709[0m     compression[38;5;241m=[39m[38;5;28mself[39m[38;5;241m.[39moptions[38;5;241m.[39mget([38;5;124m"[39m[38;5;124mcompression[39m[38;5;124m"[39m, [38;5;28;01mNone[39;00m),
-[0;32m   1710[0m     memory_map[38;5;241m=[39m[38;5;28mself[39m[38;5;241m.[39moptions[38;5;241m.[39mget([38;5;124m"[39m[38;5;124mmemory_map[39m[38;5;124m"[39m, [38;5;28;01mFalse[39;00m),
-[0;32m   1711[0m     is_text[38;5;241m=[39mis_text,
-[0;32m   1712[0m     errors[38;5;241m=[39m[38;5;28mself[39m[38;5;241m.[39moptions[38;5;241m.[39mget([38;5;124m"[39m[38;5;124mencoding_errors[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mstrict[39m[38;5;124m"[39m),
-[0;32m   1713[0m     storage_options[38;5;241m=[39m[38;5;28mself[39m[38;5;241m.[39moptions[38;5;241m.[39mget([38;5;124m"[39m[38;5;124mstorage_options[39m[38;5;124m"[39m, [38;5;28;01mNone[39;00m),
-[0;32m   1714[0m )
-[0;32m   1715[0m [38;5;28;01massert[39;00m [38;5;28mself[39m[38;5;241m.[39mhandles [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m
-[0;32m   1716[0m f [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mhandles[38;5;241m.[39mhandle
-
-File [1;32mC:\ALL\AppData\anaconda3\envs\mada_book\Lib\site-packages\pandas\io\common.py:863[0m, in [0;36mget_handle[1;34m(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)[0m
-[0;32m    858[0m [38;5;28;01melif[39;00m [38;5;28misinstance[39m(handle, [38;5;28mstr[39m):
-[0;32m    859[0m     [38;5;66;03m# Check whether the filename is to be opened in binary mode.[39;00m
-[0;32m    860[0m     [38;5;66;03m# Binary mode does not support 'encoding' and 'newline'.[39;00m
-[0;32m    861[0m     [38;5;28;01mif[39;00m ioargs[38;5;241m.[39mencoding [38;5;129;01mand[39;00m [38;5;124m"[39m[38;5;124mb[39m[38;5;124m"[39m [38;5;129;01mnot[39;00m [38;5;129;01min[39;00m ioargs[38;5;241m.[39mmode:
-[0;32m    862[0m         [38;5;66;03m# Encoding[39;00m
-[1;32m--> 863[0m         handle [38;5;241m=[39m [38;5;28mopen[39m(
-[0;32m    864[0m             handle,
-[0;32m    865[0m             ioargs[38;5;241m.[39mmode,
-[0;32m    866[0m             encoding[38;5;241m=[39mioargs[38;5;241m.[39mencoding,
-[0;32m    867[0m             errors[38;5;241m=[39merrors,
-[0;32m    868[0m             newline[38;5;241m=[39m[38;5;124m"[39m[38;5;124m"[39m,
-[0;32m    869[0m         )
-[0;32m    870[0m     [38;5;28;01melse[39;00m:
-[0;32m    871[0m         [38;5;66;03m# Binary mode[39;00m
-[0;32m    872[0m         handle [38;5;241m=[39m [38;5;28mopen[39m(handle, ioargs[38;5;241m.[39mmode)
-
-[1;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'data.csv'
+[1;31mAttributeError[0m: 'numpy.float64' object has no attribute 'startswith'
 
